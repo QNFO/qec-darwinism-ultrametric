@@ -5,7 +5,7 @@ date: "2026-08-05"
 license: "CC-BY-4.0"
 doi: "10.5281/zenodo.21812340"
 status: "published"
-version: "v1.3"
+version: "v1.4"
 arxiv_target: "2608.03944"
 keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
@@ -499,23 +499,27 @@ believe are tractable with current mathematical tools:
    Born rule in Archimedean QM) have a $p$-adic analog? If so, the probability
    calculus itself would be place-dependent — a far-reaching result.
 
-### 5.4 Partial Progress on the Open Questions (v1.2)
+### 5.4 Partial Progress on the Open Questions (v1.4)
 
 We report the results of a targeted literature investigation into each open
 question. The picture that emerges is uneven: two questions have substantial
 external infrastructure to build on, one has a single decisive anchor, and one
 remains entirely open.
 
-**Ultrametric entropy (Q1).** No p-adic generalization of von Neumann entropy
-exists in the literature — a search across OpenAlex for p-adic Shannon measures,
-ultrametric Tsallis entropies, and non-Archimedean information theory returns no
-constructive framework. The closest existing structures are the ultrametric
-diffusion models of Zúñiga-Galindo `[15, 16]`, where a master equation on a
-rugged energy landscape generates effective entropies from transition networks.
-The valuation-weighted entropy $H_v(F_p) = -v_p(F_p)$ proposed in §4.2 therefore
-remains a conjecture, but the diffusion models supply the natural testbed: the
-entropy production rate of an ultrametric random walk is computable and could be
-compared against $H_v$ in future work.
+**Ultrametric entropy (Q1).** *Correction (v1.4):* the v1.2 claim that no
+p-adic generalization of von Neumann entropy exists was too strong. Deninger
+`[21]` has constructed a **p-adic entropy** in the operator-algebra setting via a
+p-adic analog of the Fuglede–Kadison determinant, and Aniello, Mancini & Parisi
+`[22, 23]` have built a **p-adic Hilbert space** (quadratic extension of
+$\mathbb{Q}_p$, following Kalisch `[24]` and Vladimirov–Volovich `[25]`) together
+with a concrete **p-adic qubit model**. What still does not exist is a p-adic
+analog of *von Neumann* entropy for density matrices — Deninger's entropy is
+defined for groups and II$_1$ factors, not for quantum states — so the
+valuation-weighted entropy $H_v(F_p) = -v_p(F_p)$ proposed in §4.2 remains a
+conjecture in its present form. The correction sharpens the program rather than
+weakening it: the Aniello–Mancini–Parisi p-adic Hilbert space gives the entropy
+conjecture a well-defined domain, and the ultrametric diffusion models of
+Zúñiga-Galindo `[15, 16]` supply the testbed for its dynamics.
 
 **Bruhat-Tits tree codes (Q2).** This question has *substantial* external
 infrastructure. The p-adic holography program constructs exact tensor networks on
@@ -542,14 +546,34 @@ falsifiable claim — that the redundancy-fidelity tradeoff may deviate from the
 Archimedean prediction in precisely those systems where 1/f$^\alpha$ noise is
 measured.
 
-**p-adic Gleason (Q4).** No literature exists. A search for p-adic Gleason-type
-theorems and non-Archimedean probability measures returns only classical
-number-theoretic results. The obstruction is structural: Gleason's theorem
-relies on real-valued probability measures and the Archimedean order of [0,1];
-a p-adic analog would require a p-adic-valued "probability" whose normalization
-lives in $\mathbb{Z}_p$ or $\mathbb{Q}_p$, where order arguments fail.
-Khrennikov's non-Archimedean probability framework `[5]` is the natural starting
-point, but no analog theorem has been proved. This remains the deepest open
+The v1.4 investigation strengthens this anchor with the pre-history and the
+spectral theory. Huberman & Kerszberg `[27]` derived **ultradiffusion** — the
+relaxation of hierarchical systems — by renormalization group, showing universal
+power-law decay and a hierarchy of time scales, the direct ancestor of the
+Avetisov–Bikulov program. Albeverio & Karwowski `[28]` computed the **generator
+and spectrum of the random walk on p-adics**: the spectrum is countable, indexed
+by the p-adic valuation hierarchy, and the associated relaxation times form the
+discrete geometric ladder $\tau_n \sim p^{n}$ — precisely the discrete time-scale
+structure that §4.3 predicts for the redundancy staircase. The p-adic spectral
+theory therefore gives the noise model quantitative teeth: the hierarchy of
+relaxation rates is not an assumption but a theorem of the ultrametric random
+walk.
+
+**p-adic Gleason (Q4).** *Correction (v1.4):* the v1.2 claim that no literature
+exists was wrong on two counts. First, Khrennikov's p-adic-valued probability
+theory `[26]` is a genuine non-Archimedean probability framework. Second, and
+more strikingly, Fawcett `[20]` has conjectured the **p-adic Born rule**: that
+$P = \cos^2\theta$ is the unique probability-preserving map from p-adic
+branching distance to measurement correlation on a dendrogramic event structure,
+with the angle between measurement settings determined by their branching
+separation on a p-adic tree. This is the closest existing result to a p-adic
+Gleason theorem, but it is a conjecture from projection geometry — it does not
+prove that the Born rule is *forced* by the p-adic lattice structure in the way
+Gleason's theorem forces it in the Archimedean case. The structural obstruction
+documented in v1.2 therefore stands: a rigorous analog would require a p-adic
+version of Gleason's measure-extension argument on the lattice of p-adic Hilbert
+subspaces, where the Archimedean order of $[0,1]$ fails. Fawcett's conjecture
+`[20]` is the natural target to prove or refute. This remains the deepest open
 problem of the four.
 
 ---
@@ -692,3 +716,36 @@ pre-registering these predictions is `778cdfd` (2026-08-05).
     fields, and algebraic curves: arithmetic and the AdS$_3$/CFT$_2$ correspondence.*
     Adv. Theor. Math. Phys. **22**, 93 (2018).
     DOI: [10.4310/atmp.2018.v22.n1.a4](https://doi.org/10.4310/atmp.2018.v22.n1.a4)
+
+20. Fawcett, G. *Two Balls on a Tree: The Born Rule as Projection Geometry on a
+    p-Adic Dendrogram.* Zenodo (2026).
+    DOI: [10.5281/zenodo.19235811](https://doi.org/10.5281/zenodo.19235811)
+
+21. Deninger, C. *p-adic Entropy and a p-adic Fuglede–Kadison Determinant.*
+    Prog. Math. (2009). DOI: [10.1007/978-0-8176-4745-2_10](https://doi.org/10.1007/978-0-8176-4745-2_10)
+
+22. Aniello, P., Mancini, S., Parisi, V. *A p-Adic Model of Quantum States and the
+    p-Adic Qubit.* Entropy **25**(1), 86 (2022).
+    DOI: [10.3390/e25010086](https://doi.org/10.3390/e25010086)
+
+23. Aniello, P., Mancini, S., Parisi, V. *Quantum mechanics on a p-adic Hilbert
+    space: Foundations and prospects.* Int. J. Mod. Phys. A (2024).
+    DOI: [10.1142/s0219887824400176](https://doi.org/10.1142/s0219887824400176)
+
+24. Kalisch, G. K. *On p-Adic Hilbert Spaces.* Ann. Math. (1947).
+    DOI: [10.2307/1969224](https://doi.org/10.2307/1969224)
+
+25. Vladimirov, V. S., Volovich, I. V. *p-adic quantum mechanics.*
+    Commun. Math. Phys. **123**, 659 (1989).
+    DOI: [10.1007/bf01218590](https://doi.org/10.1007/bf01218590)
+
+26. Khrennikov, A. *p-adic valued probability measures.* Indag. Math. (1996).
+    DOI: [10.1016/0019-3577(96)83723-2](https://doi.org/10.1016/0019-3577(96)83723-2)
+
+27. Huberman, B. A., Kerszberg, M. *Ultradiffusion: the relaxation of hierarchical
+    systems.* J. Phys. A **18**(6) (1985).
+    DOI: [10.1088/0305-4470/18/6/013](https://doi.org/10.1088/0305-4470/18/6/013)
+
+28. Albeverio, S., Karwowski, W. *A random walk on p-adics — the generator and its
+    spectrum.* Stoch. Proc. Appl. (1994).
+    DOI: [10.1016/0304-4149(94)90054-x](https://doi.org/10.1016/0304-4149(94)90054-x)
