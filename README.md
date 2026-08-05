@@ -26,7 +26,7 @@ This may change the tradeoff.
 | P1 — Due Diligence | ⬜ |
 | P2 — Literature | ⬜ |
 | P4 — Core Derivation | ⬜ |
-| P5 — Publication | ⬜ |
+| P5 — Publication | 🟢 DOI 10.5281/zenodo.21810015 |
 
 ## Files
 
