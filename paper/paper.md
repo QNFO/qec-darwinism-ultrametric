@@ -1,0 +1,248 @@
+---
+title: "Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces"
+author: "Rowan Brad Quni-Gudzinas"
+date: "2026-08-05"
+license: "QNFO Unified License Agreement (QNFO-ULA)"
+doi: "TBD"
+status: "draft"
+keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski"]
+---
+
+# Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces
+
+> **Auditing Target:** Maity et al., *Exact Tradeoff Between Quantum Error Correction
+> and Quantum Darwinism: An Information-Theoretic No-Go Theorem*, arXiv:2608.03944v1 (2026).
+
+## Abstract
+
+[TBD — draft after §1–4 are complete. 150–250 words.]
+
+---
+
+## 1. Introduction: A Tradeoff Born in One Completion
+
+Quantum error correction (QEC) and Quantum Darwinism describe opposing consequences
+of the same physical process — system-environment interaction. QEC seeks to preserve
+logical quantum information against decoherence; Quantum Darwinism explains how
+decoherence itself produces the objective, classical world by proliferating
+redundant records into the environment.
+
+Maity et al. (arXiv:2608.03944) have established the first quantitative connection
+between these paradigms: an exact information-theoretic tradeoff
+
+$$R(f) \cdot F_L \leq C$$
+
+where $R(f)$ is Darwinistic redundancy (the number of environment fragments that
+carry the full system information) and $F_L$ is the post-recovery logical fidelity
+(how well the logical qubit survives after syndrome extraction and correction).
+A model-independent no-go theorem further shows that $F_L$ exceeding a critical
+threshold $F_L^{\text{crit}}$ precludes redundant classical records entirely.
+
+The authors derive this tradeoff using a block-environment model based on the
+logical GHZ block of the Shor [[9,1,3]] code. All quantities — fidelity, Holevo
+information, redundancy — are defined over standard Archimedean metrics: the
+Hamming distance between codewords, the trace distance between density matrices,
+the Shannon-like counting of distinct environment fragments.
+
+**This paper asks: what happens to the tradeoff when the code space is structured
+ultrametrically rather than Archimedeanly?**
+
+The question is not idle. Per Ostrowski's theorem, any quantity defined over the
+rationals $\mathbb{Q}$ has completions at every place — the real Archimedean place
+$\mathbb{R}$ and all $p$-adic non-Archimedean places $\mathbb{Q}_p$. The
+Bruhat-Tits tree is the natural geometry for $p$-adic information: a homogeneous
+tree where distances satisfy the strong triangle inequality
+
+$$d(x,z) \leq \max(d(x,y), d(y,z))$$
+
+rather than the Archimedean $d(x,z) \leq d(x,y) + d(y,z)$. This changes the
+information topology fundamentally: in an ultrametric, two points are either
+identical or maximally distant relative to any third — there is no "partial"
+overlap, no gradual degradation. The concept of "redundancy" — how many
+distinct environment fragments carry the same system information — acquires a
+different meaning when fragments cannot be partially similar.
+
+This paper is an exercise in consilience: it brings the Continuum Trilogy's
+Ostrowski diagnostics to bear on a precise, falsifiable no-go theorem in quantum
+information theory. The result — whether the tradeoff changes or proves
+Ostrowski-invariant — is a concrete empirical question about the relationship
+between the number system and the physics built on it.
+
+### 1.1 Structure
+
+- **§2** summarizes the Maity et al. theorem: model, derivation, and the no-go bound
+- **§3** introduces ultrametric code spaces: Bruhat-Tits geometry, p-adic sphere
+  packings, and the Continuum Trilogy connection
+- **§4** reformulates redundancy in ultrametric terms and derives how the tradeoff
+  relation transforms
+- **§5** discusses implications: could ultrametric QEC circumvent the Darwinism
+  bottleneck? What would an experiment look like?
+- **§6** states falsifiable predictions and concludes
+
+---
+
+## 2. The No-Go Theorem (Summary of Maity et al.)
+
+> *[To be written — requires deep read of the full 70KB arXiv paper.]*
+
+### 2.1 The Block-Environment Model
+
+The Shor [[9,1,3]] code encodes one logical qubit into nine physical qubits. The
+logical GHZ block is a specific 3-qubit subsystem that carries the logical
+information.
+
+### 2.2 Key Quantities
+
+| Quantity | Symbol | Definition | Metric |
+|:---------|:-------|:-----------|:-------|
+| Logical fidelity | $F_L$ | Overlap between recovered and initial logical state | Trace distance (Archimedean) |
+| Holevo information | $\chi$ | Accessible classical information about the system in environment fragment | von Neumann entropy (Archimedean) |
+| Darwinistic redundancy | $R(f)$ | Number of distinct environment fragments carrying >f fraction of Holevo info | Counting (Archimedean) |
+
+### 2.3 The Tradeoff Derivation
+
+[To be written.]
+
+### 2.4 The No-Go Theorem (Model-Independent)
+
+[To be written. Key claim: $F_L > F_L^{\text{crit}} \Rightarrow R(f) = 0$ for any model.]
+
+---
+
+## 3. Ultrametric Code Spaces
+
+> *[To be written — draws on Continuum Trilogy Paper I, Adelic Shannon Theory,
+> and the Bruhat-Tits tree formalism from the CWI poster project.]*
+
+### 3.1 The Bruhat-Tits Tree as an Information Geometry
+
+The $p$-adic numbers $\mathbb{Q}_p$ have a natural tree structure: the Bruhat-Tits
+tree $\mathcal{T}_p$ is an infinite $(p+1)$-regular tree whose vertices correspond
+to $p$-adic balls. The distance between any two points satisfies the strong triangle
+inequality.
+
+### 3.2 Sphere Packings and Code Distances
+
+In an ultrametric space, the strong triangle inequality forces spheres of the same
+radius to be either identical or disjoint. This has direct consequences for the
+geometry of error-correcting codes:
+
+- The minimum distance between codewords is either an integer power of $p$ or infinite
+  (there is no "between")
+- The packing density on $\mathcal{T}_p$ has different asymptotic bounds than on
+  Euclidean/Hamming spaces
+- The concept of a "neighborhood" of a codeword (the set of correctable errors) is a
+  $p$-adic ball, not an Archimedean sphere
+
+### 3.3 Ostrowski's Theorem and the Dimensionless Mandate
+
+Per the Ostrowski Dimensionless Mandate (QNFO Core §0.7): all physics formulas must
+be expressed in dimensionless natural numbers, so they do not presume which completion
+of $\mathbb{Q}$ is being used. The Maity et al. tradeoff relation — written in terms
+of Archimedean fidelities and redundancies — is an Archimedean projection of a
+potentially more general relation. The ultrametric reformulation makes this explicit.
+
+---
+
+## 4. The Tradeoff Under Ultrametric Transformation
+
+> *[To be written — core derivation. This is the paper's main contribution.]*
+
+### 4.1 Redundancy Redefined
+
+In an ultrametric, the strong triangle inequality implies that for any three
+environment fragments $e_1, e_2, e_3$:
+
+$$d(e_1, e_3) \leq \max(d(e_1, e_2), d(e_2, e_3))$$
+
+with equality of the two larger distances. This means that if fragments $e_1$ and
+$e_2$ are within distance $r$ of a reference fragment $e_0$, then $e_1$ and $e_2$
+are also within distance $r$ of each other. The notion of a "cluster" of similar
+fragments — the operational definition of redundancy — becomes binary: either all
+fragments in a cluster are mutually similar, or they are all mutually distant.
+There is no intermediate regime of "partial" redundancy.
+
+This suggests that the effective redundancy $R_U(f)$ in an ultrametric may be
+**quantized** — taking only integer multiples of some fundamental redundancy quantum
+tied to the $p$-adic valuation — rather than the continuous function $R(f)$ that
+appears in the Archimedean tradeoff.
+
+### 4.2 The Transformed Tradeoff
+
+[To be derived. Key conjecture:]
+
+$$R_U(f) \cdot F_L \leq C_U$$
+
+where $C_U$ may differ from the Archimedean $C$, potentially admitting regimes where
+both high logical fidelity and high redundancy coexist — or, conversely, where the
+constraint is even tighter.
+
+### 4.3 Falsifiable Predictions
+
+1. **Prediction P1:** If the physical noise model in a QEC experiment has a
+   significant $p$-adic (ultrametric) component, the observed tradeoff between
+   logical fidelity and classical redundancy should deviate from the Archimedean
+   prediction of Maity et al.
+2. **Prediction P2:** The Archimedean tradeoff is a limiting case of a more general
+   Ostrowski-compliant relation that reduces to the Maity et al. bound when
+   evaluated at the Archimedean place.
+3. **Disconfirmation condition:** If an experiment measures $R(f)$ and $F_L$ and
+   finds agreement with the Archimedean bound at all physically accessible noise
+   scales, then either (a) ultrametric effects are negligible at those scales, or
+   (b) the no-go theorem is Ostrowski-invariant — both outcomes constrain the
+   Continuum Trilogy's physical content.
+
+---
+
+## 5. Implications
+
+> *[To be written.]*
+
+### 5.1 If the Tradeoff Changes: A New Regime for QEC
+
+### 5.2 If the Tradeoff Is Ostrowski-Invariant: A Deep Null Result
+
+### 5.3 Connection to CWI QEC Workshop (Aug 24–28, 2026)
+
+The poster presented at CWI asks: "What falsifies the QEC roadmap?" One possible
+answer — explored in this paper — is that the roadmap assumes Archimedean code
+geometry. If the physical noise in real quantum processors has an ultrametric
+component (e.g., from 1/f noise with power-law spectra, or from non-Markovian
+environments with hierarchical structure), then the ultimate bounds on QEC
+performance may be different from current estimates.
+
+---
+
+## 6. Conclusion
+
+> *[To be written.]*
+
+---
+
+## Declarations
+
+### Competing Interests
+None.
+
+### Data Availability
+All derivations are in the paper. The Shor [[9,1,3]] code is a standard QEC construction.
+
+### Funding
+This research received no specific grant from any funding agency.
+
+### Pre-Registration
+This paper's core predictions (§4.3, P1–P2) are timestamped by the git commit
+history of the repository QNFO/qec-darwinism-ultrametric. The first commit
+pre-registering these predictions is `[COMMIT_HASH]`.
+
+---
+
+## References (Preliminary)
+
+- Maity, Onggadinata, Koh. *Exact Tradeoff Between Quantum Error Correction and
+  Quantum Darwinism.* arXiv:2608.03944v1 (2026).
+- Quni-Gudzinas, R. B. *Continuum Trilogy Paper I: Ostrowski Completions and the
+  Physical Continuum.* Zenodo. DOI: 10.5281/zenodo.21672990.
+- Quni-Gudzinas, R. B. *Adelic Shannon Theory.* Zenodo. DOI: 10.5281/zenodo.21698976.
+- Quni-Gudzinas, R. B. *Five Pillars, One Framework: A Cross-Domain Audit.* Zenodo.
+- [Additional references to be added during literature search — see PROJECT-PLAN.md §P2.]

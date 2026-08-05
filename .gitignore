@@ -1,0 +1,42 @@
+# QNFO Research Project
+# See qnfo-core SKILL.md for canonical .gitignore template
+
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+
+# Node
+node_modules/
+
+# Temp
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Pandoc intermediate
+paper/*.html
+
+# PDF builds (generated; keep only in releases/)
+paper/*.pdf
+
+# Zenodo
+.zenodo_token
+
+# Notebook checkpoints
+notebooks/.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# Wrangler
+.wrangler/
