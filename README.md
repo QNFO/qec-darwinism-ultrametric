@@ -33,7 +33,7 @@ This may change the tradeoff.
 | File | Description |
 |:-----|:------------|
 | `PROJECT-PLAN.md` | Full WBS plan, milestones, risk register |
-| `paper/paper.md` | Paper draft with section outline |
+| `paper/qec-darwinism-ultrametric.md` | Paper draft with section outline |
 | `artifacts/` | Due diligence, consilience gate, search evidence |
 | `docs/` | Supplementary documentation |
 | `notebooks/` | Computational notebooks |

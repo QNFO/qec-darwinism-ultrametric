@@ -36,7 +36,7 @@ Measurement Stratigraphy) × INM (information-theoretic no-go theorem)
 | P2 — Literature | ⬜ | p-adic code theory, ultrametric QEC, Darwinism foundations | Aug 9–12 |
 | P3 — Citations | ⬜ | BibTeX extraction, verification against Crossref | Aug 12–13 |
 | P4 — Core Derivation | ⬜ | Reformulate tradeoff in ultrametric geometry | Aug 14–21 |
-| P5 — Publication | ⬜ | paper.md, PDF build (pandoc→MathJax SVG→CDP), Zenodo DOI | Aug 22–27 |
+| P5 — Publication | ⬜ | qec-darwinism-ultrametric.md, PDF build (pandoc→MathJax SVG→CDP), Zenodo DOI | Aug 22–27 |
 | P6 — Deploy | ⬜ | D1 living-paper, papers-server verification | Aug 27–28 |
 | P7 — Disseminate | ⬜ | SEO, Buffer social, papers.qnfo.org | Aug 28–30 |
 
@@ -47,7 +47,7 @@ Measurement Stratigraphy) × INM (information-theoretic no-go theorem)
 | M0 | Aug 5 | Repo created, scaffold complete | Branch pushed to GitHub |
 | M1 | Aug 8 | Due diligence complete, consilience gate passed | KIF-29 record in artifacts/ |
 | M2 | Aug 12 | Literature search complete, 8 sources queried | Evidence in artifacts/external-search/ |
-| M3 | Aug 21 | Core derivation complete — tradeoff reformulated | paper.md §§1-4 drafted |
+| M3 | Aug 21 | Core derivation complete — tradeoff reformulated | qec-darwinism-ultrametric.md §§1-4 drafted |
 | M4 | Aug 24 | **CWI Summer School begins** — present preliminary results at poster session Wed Aug 26 |
 | M5 | Aug 27 | Paper published — arXiv, Zenodo DOI, D1 | All BP-1 through P5.FRESH gates |
 | M6 | Aug 28 | Dissemination complete | Buffer posts confirmed |
