@@ -216,9 +216,6 @@ Ultrametric Spaces</h1>
 <p class="author">Rowan Brad Quni-Gudzinas</p>
 <p class="date">2026-08-05</p>
 </header>
-<h1
-id="archimedean-shadows-the-qec-darwinism-tradeoff-in-ultrametric-spaces">Archimedean
-Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces</h1>
 <blockquote>
 <p><strong>Auditing Target:</strong> Maity et al., <em>Exact Tradeoff
 Between Quantum Error Correction and Quantum Darwinism: An
@@ -299,25 +296,38 @@ triangle inequality</p>
 <p><span class="math display">\[d(x,z) \leq \max(d(x,y),
 d(y,z))\]</span></p>
 <p>rather than the Archimedean <span class="math inline">\(d(x,z) \leq
-d(x,y) + d(y,z)\)</span>. This changes the information topology changes:
-in an ultrametric, two points are either identical or maximally distant
+d(x,y) + d(y,z)\)</span>. This changes the information topology: in an
+ultrametric, two points are either identical or maximally distant
 relative to any third — there is no “partial” overlap, no gradual
 degradation. The concept of “redundancy” — how many distinct environment
 fragments carry the same system information — acquires a different
 meaning when fragments cannot be partially similar.</p>
-<p>This paper is an exercise in consilience: it brings the Continuum
-Trilogy’s Ostrowski diagnostics to bear on a precise, falsifiable no-go
-theorem in quantum information theory. The result — whether the tradeoff
-changes or proves Ostrowski-invariant — is a concrete empirical question
-about the relationship between the number system and the physics built
-on it.</p>
+<p>Prior published work on adelic quantum error correction has already
+made the case that fault-tolerant QEC requires ultrametric structure
+<code>[10-13]</code>: the metric mismatch hypothesis <code>[12]</code>
+proposes p-adic stabilizer codes with a p-adic weight metric, and the
+Ostrowski-to-fault-tolerance theorem <code>[11]</code> proves that any
+complete QEC scheme must be encoded in a representation well-defined at
+the Archimedean place and at least one p-adic place. Our contribution is
+orthogonal: that work asks how to <em>encode</em> quantum information
+ultrametrically; we ask what happens to the <em>QEC-Darwinism
+tradeoff</em> — the competition between logical protection and emergent
+classical records — when the code space lives on the Bruhat-Tits tree.
+To our knowledge no existing work, in that line or in the broader
+literature, has examined Quantum Darwinism under ultrametric information
+metrics.</p>
+<p>This paper is an exercise in consilience: it applies Ostrowski’s
+place-democracy diagnostics, developed in ref. [2], to a precise,
+falsifiable no-go theorem in quantum information theory. The result —
+whether the tradeoff changes or proves Ostrowski-invariant — is a
+concrete empirical question about the relationship between the number
+system and the physics built on it.</p>
 <h3 id="structure">1.1 Structure</h3>
 <ul>
 <li><strong>§2</strong> summarizes the Maity et al. theorem: model,
 derivation, and the no-go bound</li>
 <li><strong>§3</strong> introduces ultrametric code spaces: Bruhat-Tits
-geometry, p-adic sphere packings, and the Continuum Trilogy
-connection</li>
+geometry, p-adic sphere packings, and the Ostrowski diagnostics</li>
 <li><strong>§4</strong> reformulates redundancy in ultrametric terms and
 derives how the tradeoff relation transforms</li>
 <li><strong>§5</strong> discusses implications: could ultrametric QEC
@@ -527,10 +537,10 @@ spaces — and it is the property that changes the structure of the
 QEC-Darwinism tradeoff.</p>
 <p>The BT tree is the natural geometry for <span
 class="math inline">\(p\)</span>-adic information processing
-<code>[Quni-Gudzinas, Continuum Trilogy Paper I; Adelic Shannon Theory]</code>.
-But it has never been used as the substrate for quantum error-correcting
-codes. We now sketch what such a code would look like, and why its
-information topology differs from the Archimedean case.</p>
+<code>[2, 3]</code>. But it has never been used as the substrate for
+quantum error-correcting codes. We now sketch what such a code would
+look like, and why its information topology differs from the Archimedean
+case.</p>
 <h3 id="sphere-packings-on-the-bt-tree">3.2 Sphere Packings on the BT
 Tree</h3>
 <p>In an ultrametric space, the strong triangle inequality forces
@@ -819,34 +829,18 @@ If the Tradeoff Is Ostrowski-Invariant: A Deep Null Result</h3>
 <p>If the Archimedean bound is universal — if every <span
 class="math inline">\(p\)</span>-adic place yields the same tradeoff —
 then the no-go theorem is a genuine physical invariant, independent of
-the number system. This would be a constraining the Continuum Trilogy’s
-physical content: it would imply that the Ostrowski place-democracy
-principle, while mathematically correct, has no operationally accessible
-signature at the scales accessible to current QEC experiments.</p>
-<p>A null result of this form is itself publishable and constrains
-QNFO’s research program. It would mean that the Continuum Trilogy’s
-prediction — that physical laws depend on which completion of <span
+the number system. This would be a constraining the physical content of
+the Ostrowski place-democracy thesis [2]: it would imply that the
+place-democracy principle, while mathematically correct, has no
+operationally accessible signature at the scales accessible to current
+QEC experiments.</p>
+<p>A null result of this form is itself publishable and constrains the
+research program of ref. [2]. It would mean that the prediction — that
+physical laws depend on which completion of <span
 class="math inline">\(\mathbb{Q}\)</span> is operationally relevant — is
 either false at the QEC scale, or requires significantly more precise
 experiments to detect.</p>
-<h3 id="the-cwi-qec-workshop-connection">5.3 The CWI QEC Workshop
-Connection</h3>
-<p>The CWI Summer School on Quantum Algorithms and QEC (Aug 24–28, 2026)
-provides a natural forum to present these ideas. The poster authored for
-the workshop asks: This paper provides a specific, falsifiable
-answer:</p>
-<blockquote>
-<p>The QEC roadmap assumes Archimedean noise geometry. If physical noise
-has an ultrametric component — and if the resulting redundancy–fidelity
-tradeoff deviates from the Archimedean prediction — then the ultimate
-resource requirements for fault-tolerant quantum computing may differ
-from current estimates, in a direction determined by the effective prime
-<span class="math inline">\(p\)</span>.</p>
-</blockquote>
-<p>The CWI QEC workshop (Oct 28–30, 2026) provides a second target for a
-more mature version of this paper, incorporating feedback from the
-summer school.</p>
-<h3 id="open-questions">5.4 Open Questions</h3>
+<h3 id="open-questions">5.3 Open Questions</h3>
 <p>This paper raises more questions than it answers. We identify four
 that we believe are tractable with current mathematical tools:</p>
 <ol type="1">
@@ -875,6 +869,64 @@ Archimedean QM) have a <span class="math inline">\(p\)</span>-adic
 analog? If so, the probability calculus itself would be place-dependent
 — a far-reaching result.</p></li>
 </ol>
+<h3 id="partial-progress-on-the-open-questions-v1.2">5.4 Partial
+Progress on the Open Questions (v1.2)</h3>
+<p>We report the results of a targeted literature investigation into
+each open question. The picture that emerges is uneven: two questions
+have substantial external infrastructure to build on, one has a single
+decisive anchor, and one remains entirely open.</p>
+<p><strong>Ultrametric entropy (Q1).</strong> No p-adic generalization
+of von Neumann entropy exists in the literature — a search across
+OpenAlex for p-adic Shannon measures, ultrametric Tsallis entropies, and
+non-Archimedean information theory returns no constructive framework.
+The closest existing structures are the ultrametric diffusion models of
+Zúñiga-Galindo <code>[15, 16]</code>, where a master equation on a
+rugged energy landscape generates effective entropies from transition
+networks. The valuation-weighted entropy <span
+class="math inline">\(H_v(F_p) = -v_p(F_p)\)</span> proposed in §4.2
+therefore remains a conjecture, but the diffusion models supply the
+natural testbed: the entropy production rate of an ultrametric random
+walk is computable and could be compared against <span
+class="math inline">\(H_v\)</span> in future work.</p>
+<p><strong>Bruhat-Tits tree codes (Q2).</strong> This question has
+<em>substantial</em> external infrastructure. The p-adic holography
+program constructs exact tensor networks on the Bruhat-Tits tree:
+Gubser, Knaute, Parikh &amp; Samberg <code>[17]</code> established
+p-Adic AdS/CFT; Hung, Li &amp; Melby-Thompson <code>[18]</code> showed
+p-adic CFT is a holographic tensor network built from perfect tensors on
+the BT tree; Heydeman, Marcolli, Saberi &amp; Stoica <code>[19]</code>
+extended the correspondence to algebraic curves. Perfect-tensor networks
+on the BT tree are, by the standard holographic-code argument,
+error-correcting codes whose logical subspace is protected against
+errors localized in p-adic balls. <strong>The code construction
+therefore already exists in the holographic literature</strong> — what
+is missing is the fidelity-redundancy analysis that this paper’s
+framework requires. A direct program: take the Hung-Melby-Thompson
+p-adic tensor network, couple it to an environment, and compute the
+tradeoff curve against the Archimedean prediction.</p>
+<p><strong>Ultrametric noise (Q3).</strong> This question has a single
+decisive anchor: Avetisov, Bikulov &amp; Osipov <code>[14]</code> proved
+that p-adic ultrametric random walks on hierarchical energy landscapes
+produce <strong>1/f-like relaxation spectra</strong> — the exact
+spectral class observed in superconducting qubit dephasing. Their result
+converts the candidate noise models of §5.2 from speculation to
+empirical motivation: the physical noise that limits QEC may already be
+described by p-adic dynamics. This is the strongest external support for
+the paper’s central falsifiable claim — that the redundancy-fidelity
+tradeoff may deviate from the Archimedean prediction in precisely those
+systems where 1/f<span class="math inline">\(^\alpha\)</span> noise is
+measured.</p>
+<p><strong>p-adic Gleason (Q4).</strong> No literature exists. A search
+for p-adic Gleason-type theorems and non-Archimedean probability
+measures returns only classical number-theoretic results. The
+obstruction is structural: Gleason’s theorem relies on real-valued
+probability measures and the Archimedean order of [0,1]; a p-adic analog
+would require a p-adic-valued “probability” whose normalization lives in
+<span class="math inline">\(\mathbb{Z}_p\)</span> or <span
+class="math inline">\(\mathbb{Q}_p\)</span>, where order arguments fail.
+Khrennikov’s non-Archimedean probability framework <code>[5]</code> is
+the natural starting point, but no analog theorem has been proved. This
+remains the deepest open problem of the four.</p>
 <hr />
 <h2 id="conclusion">6. Conclusion</h2>
 <p>Maity et al. proved that quantum error correction and Quantum
@@ -937,9 +989,9 @@ standard QEC construction.</p>
 <p>This research received no specific grant from any funding agency.</p>
 <h3 id="pre-registration">Pre-Registration</h3>
 <p>This paper’s core predictions (§4.3, P1–P2) are timestamped by the
-git commit history of the repository QNFO/qec-darwinism-ultrametric. The
-first commit pre-registering these predictions is
-<code>[COMMIT_HASH]</code>.</p>
+git commit history of the public GitHub repository hosting this paper.
+The first commit pre-registering these predictions is
+<code>778cdfd</code> (2026-08-05).</p>
 <hr />
 <h2 id="references">References</h2>
 <ol type="1">
@@ -956,9 +1008,6 @@ href="https://doi.org/10.5281/zenodo.21698976">10.5281/zenodo.21698976</a></p></
 <li><p>Quni-Gudzinas, R. B. <em>Adelic Entropic Numbers.</em> Zenodo.
 DOI: <a
 href="https://doi.org/10.5281/zenodo.21698978">10.5281/zenodo.21698978</a></p></li>
-<li><p>Quni-Gudzinas, R. B. <em>Five Pillars, One Framework: A
-Cross-Domain Audit of the Ruliad, Autaxys QC, and Measurement
-Stratigraphy.</em> QNFO/wbs-6-synthesis.</p></li>
 <li><p>Khrennikov, A. <em>Non-Archimedean quantum mechanics.</em> Tokyo
 J. Math. <strong>10</strong>(1) (1998). DOI: <a
 href="https://doi.org/10.2748/tmpub.10.1">10.2748/tmpub.10.1</a></p></li>
@@ -992,8 +1041,32 @@ href="https://doi.org/10.5281/zenodo.20556327">10.5281/zenodo.20556327</a></p></
 <li><p>Quni-Gudzinas, R. B. et al. <em>Kepler Program: Complete
 Framework for Adelic Quantum Computing.</em> Zenodo (2026). DOI: <a
 href="https://doi.org/10.5281/zenodo.21314315">10.5281/zenodo.21314315</a></p></li>
+<li><p>Avetisov, V. A., Bikulov, A. Kh., Osipov, V. Al. <em>p-adic
+description of characteristic relaxation in complex systems.</em> J.
+Phys. A: Math. Gen. <strong>36</strong>, 4239 (2003). DOI: <a
+href="https://doi.org/10.1088/0305-4470/36/15/301">10.1088/0305-4470/36/15/301</a></p></li>
+<li><p>Zúñiga-Galindo, W. A. <em>Ultrametric diffusion, rugged energy
+landscapes and transition networks.</em> Physica A <strong>597</strong>,
+127221 (2022). DOI: <a
+href="https://doi.org/10.1016/j.physa.2022.127221">10.1016/j.physa.2022.127221</a></p></li>
+<li><p>Chacón-Cortés, L. F., Zúñiga-Galindo, W. A. <em>Nonlocal
+operators, parabolic-type equations, and ultrametric random walks.</em>
+J. Math. Phys. <strong>54</strong>, 113503 (2013). DOI: <a
+href="https://doi.org/10.1063/1.4828857">10.1063/1.4828857</a></p></li>
+<li><p>Gubser, S. S., Knaute, J., Parikh, S., Samberg, A. <em>p-Adic
+AdS/CFT.</em> Commun. Math. Phys. <strong>352</strong>, 1019 (2017).
+DOI: <a
+href="https://doi.org/10.1007/s00220-016-2813-6">10.1007/s00220-016-2813-6</a></p></li>
+<li><p>Hung, L.-Y., Li, W., Melby-Thompson, C. M. <em>p-adic CFT is a
+holographic tensor network.</em> JHEP <strong>04</strong>, 170 (2019).
+DOI: <a
+href="https://doi.org/10.1007/jhep04(2019)170">10.1007/jhep04(2019)170</a></p></li>
+<li><p>Heydeman, M., Marcolli, M., Saberi, I., Stoica, B. <em>Tensor
+networks, p-adic fields, and algebraic curves: arithmetic and the
+AdS<span class="math inline">\(_3\)</span>/CFT<span
+class="math inline">\(_2\)</span> correspondence.</em> Adv. Theor. Math.
+Phys. <strong>22</strong>, 93 (2018). DOI: <a
+href="https://doi.org/10.4310/atmp.2018.v22.n1.a4">10.4310/atmp.2018.v22.n1.a4</a></p></li>
 </ol>
-<p><em>Additional references from the CWI poster workspace and external
-literature search will be added during Phase 5 finalization.</em></p>
 </body>
 </html>

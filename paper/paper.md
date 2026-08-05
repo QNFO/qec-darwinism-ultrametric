@@ -5,12 +5,10 @@ date: "2026-08-05"
 license: "CC-BY-4.0"
 doi: "10.5281/zenodo.21810015"
 status: "published"
-version: "v1.1"
+version: "v1.2"
 arxiv_target: "2608.03944"
 keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
-
-# Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces
 
 > **Auditing Target:** Maity et al., *Exact Tradeoff Between Quantum Error Correction
 > and Quantum Darwinism: An Information-Theoretic No-Go Theorem*, arXiv:2608.03944v1 (2026).
@@ -79,14 +77,28 @@ tree where distances satisfy the strong triangle inequality
 $$d(x,z) \leq \max(d(x,y), d(y,z))$$
 
 rather than the Archimedean $d(x,z) \leq d(x,y) + d(y,z)$. This changes the
-information topology changes: in an ultrametric, two points are either
+information topology: in an ultrametric, two points are either
 identical or maximally distant relative to any third — there is no "partial"
 overlap, no gradual degradation. The concept of "redundancy" — how many
 distinct environment fragments carry the same system information — acquires a
 different meaning when fragments cannot be partially similar.
 
-This paper is an exercise in consilience: it brings the Continuum Trilogy's
-Ostrowski diagnostics to bear on a precise, falsifiable no-go theorem in quantum
+Prior published work on adelic quantum error correction has already made the
+case that fault-tolerant QEC requires ultrametric structure `[10-13]`: the
+metric mismatch hypothesis `[12]` proposes p-adic stabilizer codes with a
+p-adic weight metric, and the Ostrowski-to-fault-tolerance theorem `[11]`
+proves that any complete QEC scheme must be encoded in a representation
+well-defined at the Archimedean place and at least one p-adic place. Our
+contribution is orthogonal: that work asks how to *encode* quantum information
+ultrametrically; we ask what happens to the *QEC-Darwinism tradeoff* — the
+competition between logical protection and emergent classical records — when
+the code space lives on the Bruhat-Tits tree. To our knowledge no existing
+work, in that line or in the broader literature, has examined Quantum
+Darwinism under ultrametric information metrics.
+
+This paper is an exercise in consilience: it applies Ostrowski's
+place-democracy diagnostics, developed in ref. [2], to a precise, falsifiable
+no-go theorem in quantum
 information theory. The result — whether the tradeoff changes or proves
 Ostrowski-invariant — is a concrete empirical question about the relationship
 between the number system and the physics built on it.
@@ -95,7 +107,7 @@ between the number system and the physics built on it.
 
 - **§2** summarizes the Maity et al. theorem: model, derivation, and the no-go bound
 - **§3** introduces ultrametric code spaces: Bruhat-Tits geometry, p-adic sphere
-  packings, and the Continuum Trilogy connection
+  packings, and the Ostrowski diagnostics
 - **§4** reformulates redundancy in ultrametric terms and derives how the tradeoff
   relation transforms
 - **§5** discusses implications: could ultrametric QEC circumvent the Darwinism
@@ -232,7 +244,7 @@ that differentiates ultrametric from Archimedean spaces — and it is the proper
 that changes the structure of the QEC-Darwinism tradeoff.
 
 The BT tree is the natural geometry for $p$-adic information processing
-`[Quni-Gudzinas, Continuum Trilogy Paper I; Adelic Shannon Theory]`. But it has
+`[2, 3]`. But it has
 never been used as the substrate for quantum error-correcting codes. We now
 sketch what such a code would look like, and why its information topology differs
 from the Archimedean case.
@@ -452,33 +464,17 @@ not an insurmountable limit.
 If the Archimedean bound is universal — if every $p$-adic place yields the same
 tradeoff — then the no-go theorem is a genuine physical invariant, independent
 of the number system. This would be a \textbf{deep null result} constraining the
-Continuum Trilogy's physical content: it would imply that the Ostrowski
-place-democracy principle, while mathematically correct, has no operationally
+physical content of the Ostrowski place-democracy thesis [2]: it would imply
+that the place-democracy principle, while mathematically correct, has no operationally
 accessible signature at the scales accessible to current QEC experiments.
 
-A null result of this form is itself publishable and constrains QNFO's research
-program. It would mean that the Continuum Trilogy's prediction — that physical
-laws depend on which completion of $\mathbb{Q}$ is operationally relevant — is
+A null result of this form is itself publishable and constrains the research
+program of ref. [2]. It would mean that the prediction — that physical laws
+depend on which completion of $\mathbb{Q}$ is operationally relevant — is
 either false at the QEC scale, or requires significantly more precise experiments
 to detect.
 
-### 5.3 The CWI QEC Workshop Connection
-
-The CWI Summer School on Quantum Algorithms and QEC (Aug 24–28, 2026) provides a
-natural forum to present these ideas. The poster authored for the workshop asks:
-\emph{"What falsifies the QEC roadmap?"} This paper provides a specific,
-falsifiable answer:
-
-> The QEC roadmap assumes Archimedean noise geometry. If physical noise has an
-> ultrametric component — and if the resulting redundancy–fidelity tradeoff
-> deviates from the Archimedean prediction — then the ultimate resource
-> requirements for fault-tolerant quantum computing may differ from current
-> estimates, in a direction determined by the effective prime $p$.
-
-The CWI QEC workshop (Oct 28–30, 2026) provides a second target for a more
-mature version of this paper, incorporating feedback from the summer school.
-
-### 5.4 Open Questions
+### 5.3 Open Questions
 
 This paper raises more questions than it answers. We identify four that we
 believe are tractable with current mathematical tools:
@@ -502,6 +498,59 @@ believe are tractable with current mathematical tools:
 4. **$p$-adic Gleason's theorem.** Does Gleason's theorem (which forces the
    Born rule in Archimedean QM) have a $p$-adic analog? If so, the probability
    calculus itself would be place-dependent — a far-reaching result.
+
+### 5.4 Partial Progress on the Open Questions (v1.2)
+
+We report the results of a targeted literature investigation into each open
+question. The picture that emerges is uneven: two questions have substantial
+external infrastructure to build on, one has a single decisive anchor, and one
+remains entirely open.
+
+**Ultrametric entropy (Q1).** No p-adic generalization of von Neumann entropy
+exists in the literature — a search across OpenAlex for p-adic Shannon measures,
+ultrametric Tsallis entropies, and non-Archimedean information theory returns no
+constructive framework. The closest existing structures are the ultrametric
+diffusion models of Zúñiga-Galindo `[15, 16]`, where a master equation on a
+rugged energy landscape generates effective entropies from transition networks.
+The valuation-weighted entropy $H_v(F_p) = -v_p(F_p)$ proposed in §4.2 therefore
+remains a conjecture, but the diffusion models supply the natural testbed: the
+entropy production rate of an ultrametric random walk is computable and could be
+compared against $H_v$ in future work.
+
+**Bruhat-Tits tree codes (Q2).** This question has *substantial* external
+infrastructure. The p-adic holography program constructs exact tensor networks on
+the Bruhat-Tits tree: Gubser, Knaute, Parikh & Samberg `[17]` established p-Adic
+AdS/CFT; Hung, Li & Melby-Thompson `[18]` showed p-adic CFT is a holographic
+tensor network built from perfect tensors on the BT tree; Heydeman, Marcolli,
+Saberi & Stoica `[19]` extended the correspondence to algebraic curves.
+Perfect-tensor networks on the BT tree are, by the standard holographic-code
+argument, error-correcting codes whose logical subspace is protected against
+errors localized in p-adic balls. **The code construction therefore already
+exists in the holographic literature** — what is missing is the
+fidelity-redundancy analysis that this paper's framework requires. A direct
+program: take the Hung-Melby-Thompson p-adic tensor network, couple it to an
+environment, and compute the tradeoff curve against the Archimedean prediction.
+
+**Ultrametric noise (Q3).** This question has a single decisive anchor: Avetisov,
+Bikulov & Osipov `[14]` proved that p-adic ultrametric random walks on
+hierarchical energy landscapes produce **1/f-like relaxation spectra** — the
+exact spectral class observed in superconducting qubit dephasing. Their result
+converts the candidate noise models of §5.2 from speculation to empirical
+motivation: the physical noise that limits QEC may already be described by
+p-adic dynamics. This is the strongest external support for the paper's central
+falsifiable claim — that the redundancy-fidelity tradeoff may deviate from the
+Archimedean prediction in precisely those systems where 1/f$^\alpha$ noise is
+measured.
+
+**p-adic Gleason (Q4).** No literature exists. A search for p-adic Gleason-type
+theorems and non-Archimedean probability measures returns only classical
+number-theoretic results. The obstruction is structural: Gleason's theorem
+relies on real-valued probability measures and the Archimedean order of [0,1];
+a p-adic analog would require a p-adic-valued "probability" whose normalization
+lives in $\mathbb{Z}_p$ or $\mathbb{Q}_p$, where order arguments fail.
+Khrennikov's non-Archimedean probability framework `[5]` is the natural starting
+point, but no analog theorem has been proved. This remains the deepest open
+problem of the four.
 
 ---
 
@@ -565,8 +614,8 @@ This research received no specific grant from any funding agency.
 
 ### Pre-Registration
 This paper's core predictions (§4.3, P1–P2) are timestamped by the git commit
-history of the repository QNFO/qec-darwinism-ultrametric. The first commit
-pre-registering these predictions is `[COMMIT_HASH]`.
+history of the public GitHub repository hosting this paper. The first commit
+pre-registering these predictions is `778cdfd` (2026-08-05).
 
 ---
 
@@ -586,41 +635,60 @@ pre-registering these predictions is `[COMMIT_HASH]`.
 4. Quni-Gudzinas, R. B. *Adelic Entropic Numbers.* Zenodo.
    DOI: [10.5281/zenodo.21698978](https://doi.org/10.5281/zenodo.21698978)
 
-5. Quni-Gudzinas, R. B. *Five Pillars, One Framework: A Cross-Domain Audit
-   of the Ruliad, Autaxys QC, and Measurement Stratigraphy.* QNFO/wbs-6-synthesis.
-
-6. Khrennikov, A. *Non-Archimedean quantum mechanics.* Tokyo J. Math. **10**(1)
+5. Khrennikov, A. *Non-Archimedean quantum mechanics.* Tokyo J. Math. **10**(1)
    (1998). DOI: [10.2748/tmpub.10.1](https://doi.org/10.2748/tmpub.10.1)
 
-7. Gubser, S. S. et al. *Bending the Bruhat-Tits tree. Part I. Tensor network
+6. Gubser, S. S. et al. *Bending the Bruhat-Tits tree. Part I. Tensor network
    and emergent Einstein equations.* JHEP **06**, 094 (2021).
    DOI: [10.1007/jhep06(2021)094](https://doi.org/10.1007/jhep06(2021)094)
 
-8. Ostrowski, A. *Über einige Lösungen der Funktionalgleichung* $\psi(x)\cdot\psi(y) = \psi(xy)$.
+7. Ostrowski, A. *Über einige Lösungen der Funktionalgleichung* $\psi(x)\cdot\psi(y) = \psi(xy)$.
    Acta Math. **41**, 271–284 (1916).
 
-9. Shor, P. W. *Scheme for reducing decoherence in quantum computer memory.*
+8. Shor, P. W. *Scheme for reducing decoherence in quantum computer memory.*
    Phys. Rev. A **52**, R2493 (1995).
    DOI: [10.1103/PhysRevA.52.R2493](https://doi.org/10.1103/PhysRevA.52.R2493)
 
-10. Zurek, W. H. *Quantum Darwinism.* Nature Physics **5**, 181–188 (2009).
-    DOI: [10.1038/nphys1202](https://doi.org/10.1038/nphys1202)
+9. Zurek, W. H. *Quantum Darwinism.* Nature Physics **5**, 181–188 (2009).
+   DOI: [10.1038/nphys1202](https://doi.org/10.1038/nphys1202)
 
-11. Quni-Gudzinas, R. B. et al. *Adelic Quantum Error Correction: Intrinsic Qubit
+10. Quni-Gudzinas, R. B. et al. *Adelic Quantum Error Correction: Intrinsic Qubit
     Protection from Ostrowski's Theorem.* Zenodo v1.0.0 (2026).
     DOI: [10.5281/zenodo.21214759](https://doi.org/10.5281/zenodo.21214759)
 
-12. Quni-Gudzinas, R. B. et al. *Ostrowski to Fault Tolerance: A Proof That Adelic
+11. Quni-Gudzinas, R. B. et al. *Ostrowski to Fault Tolerance: A Proof That Adelic
     Encoding is Necessary for Quantum Error Correction.* Zenodo (2026).
     DOI: [10.5281/zenodo.21304526](https://doi.org/10.5281/zenodo.21304526)
 
-13. Quni-Gudzinas, R. B. et al. *Toward p-adic Quantum Error Correction: The Metric
+12. Quni-Gudzinas, R. B. et al. *Toward p-adic Quantum Error Correction: The Metric
     Mismatch Hypothesis.* Zenodo v1.0.0 (2026).
     DOI: [10.5281/zenodo.20556327](https://doi.org/10.5281/zenodo.20556327)
 
-14. Quni-Gudzinas, R. B. et al. *Kepler Program: Complete Framework for Adelic
+13. Quni-Gudzinas, R. B. et al. *Kepler Program: Complete Framework for Adelic
     Quantum Computing.* Zenodo (2026).
     DOI: [10.5281/zenodo.21314315](https://doi.org/10.5281/zenodo.21314315)
 
-*Additional references from the CWI poster workspace and external literature
-search will be added during Phase 5 finalization.*
+14. Avetisov, V. A., Bikulov, A. Kh., Osipov, V. Al. *p-adic description of
+    characteristic relaxation in complex systems.* J. Phys. A: Math. Gen. **36**,
+    4239 (2003). DOI: [10.1088/0305-4470/36/15/301](https://doi.org/10.1088/0305-4470/36/15/301)
+
+15. Zúñiga-Galindo, W. A. *Ultrametric diffusion, rugged energy landscapes and
+    transition networks.* Physica A **597**, 127221 (2022).
+    DOI: [10.1016/j.physa.2022.127221](https://doi.org/10.1016/j.physa.2022.127221)
+
+16. Chacón-Cortés, L. F., Zúñiga-Galindo, W. A. *Nonlocal operators, parabolic-type
+    equations, and ultrametric random walks.* J. Math. Phys. **54**, 113503 (2013).
+    DOI: [10.1063/1.4828857](https://doi.org/10.1063/1.4828857)
+
+17. Gubser, S. S., Knaute, J., Parikh, S., Samberg, A. *p-Adic AdS/CFT.*
+    Commun. Math. Phys. **352**, 1019 (2017).
+    DOI: [10.1007/s00220-016-2813-6](https://doi.org/10.1007/s00220-016-2813-6)
+
+18. Hung, L.-Y., Li, W., Melby-Thompson, C. M. *p-adic CFT is a holographic tensor
+    network.* JHEP **04**, 170 (2019).
+    DOI: [10.1007/jhep04(2019)170](https://doi.org/10.1007/jhep04(2019)170)
+
+19. Heydeman, M., Marcolli, M., Saberi, I., Stoica, B. *Tensor networks, p-adic
+    fields, and algebraic curves: arithmetic and the AdS$_3$/CFT$_2$ correspondence.*
+    Adv. Theor. Math. Phys. **22**, 93 (2018).
+    DOI: [10.4310/atmp.2018.v22.n1.a4](https://doi.org/10.4310/atmp.2018.v22.n1.a4)
