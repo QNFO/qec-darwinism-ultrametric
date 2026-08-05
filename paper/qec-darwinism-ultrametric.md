@@ -5,7 +5,7 @@ date: "2026-08-05"
 license: "CC-BY-4.0"
 doi: "10.5281/zenodo.21812777"
 status: "published"
-version: "v1.4"
+version: "v1.5"
 arxiv_target: "2608.03944"
 keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
@@ -445,12 +445,29 @@ the threshold shifts, the staircase replaces the smooth divergence, or the
 maximum redundancy is bounded — then a new design parameter enters QEC
 architecture: **choose the noise model's effective prime $p$.**
 
-Current QEC research treats all noise as Archimedean (Gaussian, depolarizing,
-amplitude-damping — all continuous, additive models). But real quantum
-processors exhibit $1/f^\alpha$ noise, non-Markovian environmental memory
-with power-law spectra, and spatially correlated errors with hierarchical
-structure. Each of these has an \emph{effective ultrametric signature} that
-may be characterized by a small effective prime $p$.
+A note of calibration is required here, prompted by an adversarial review of an
+earlier draft. The claim that mainstream QEC research ignores $1/f^\alpha$ noise,
+non-Markovian environments, and spatially correlated errors would be a straw-man
+— these noise types are extensively studied, via noise spectroscopy,
+dynamical-decoupling protocols, quantum master equations, and correlated-error
+models for surface codes, all within the standard Archimedean framework. The
+accurate statement is narrower: standard QEC treats these noises within
+real-valued formalisms — correlation functions, power spectral densities, and
+error models parameterized by a spectral exponent $\alpha$ — and it has not
+asked whether their underlying relaxation geometry is hierarchical in a way that
+an ultrametric formalism would make explicit. The proposal that such noises carry
+an \emph{effective ultrametric signature} characterizable by a small prime $p$
+is a hypothesis, not an established device characteristic `[speculative]`: no
+device-calibration routine currently returns an effective prime, and no
+mainstream measurement has confirmed ultrametric noise structure. It is
+motivated by the Avetisov-Bikulov and ultradiffusion results (Section 5.4) that
+hierarchical relaxation landscapes DO generate power-law spectra, and by the
+spectral ladder of the p-adic random walk `[28]` — but it remains to be
+confirmed experimentally. Its falsifiable content is exactly the staircase
+prediction of Section 4.3: if the redundancy-fidelity curve on a device with
+power-law noise is measured and found to be smooth at all accessible scales, the
+ultrametric hypothesis at that scale is disconfirmed, and the Archimedean
+treatment stands.
 
 The experimental program is then: measure the redundancy–fidelity tradeoff on a
 real quantum processor, identify whether the curve is smooth (Archimedean) or
@@ -575,6 +592,100 @@ version of Gleason's measure-extension argument on the lattice of p-adic Hilbert
 subspaces, where the Archimedean order of $[0,1]$ fails. Fawcett's conjecture
 `[20]` is the natural target to prove or refute. This remains the deepest open
 problem of the four.
+
+### 5.4.1 New Open Questions Opened by the v1.4 Investigation (v1.5)
+
+The v1.4 corrections (p-adic entropy, p-adic Born rule conjecture, spectral
+ladder) open four NEW questions that were not formulable in v1.2:
+
+**Q5 — Proof or refutation of the p-adic Born rule (Fawcett conjecture).**
+Fawcett `[20]` conjectures that $P = \cos^2\theta$ is the unique
+probability-preserving map from p-adic branching distance to measurement
+correlation. The full conjecture is bolder than the abstract suggests: the paper
+argues that general relativity and quantum mechanics are both lossy projections
+of a single underlying event tree — depth encoding causal ancestry, angle
+encoding physical geometry — and proposes that Planck's constant $\hbar$ is the
+exchange rate between these two readings, fixed by the branching sequence of the
+event tree. `[speculative — a conjecture by the cited author, not established]`
+The paper explicitly anchors itself to Gleason's 1957 theorem, making Q5 the
+direct p-adic analog of the classical forcing result. No proof or refutation
+exists. The tractable version: on the Aniello-Mancini-Parisi p-adic Hilbert
+space `[23]`, define a p-adic analog of Gleason's measure-extension argument
+and determine whether the Born rule is forced. The obstruction is the absence
+of the Archimedean order on $[0,1]$; the conjecture may survive only as a
+*probabilistic* statement over a completion. This is the single highest-value
+open problem.
+
+**Q6 — Explicit BT-tree code with computed fidelity-redundancy curve.**
+The p-adic holographic tensor networks of Hung-Melby-Thompson `[18]` provide
+the code substrate. The open question: construct the smallest explicit code
+(a logical qubit on the p-adic tree with $p=2$ or $p=3$), couple it to an
+environment along the tree edges, and compute the redundancy-fidelity curve
+numerically against the Archimedean prediction. This turns the staircase
+prediction into a computable, checkable claim.
+
+**Q7 — p-adic qubit and the Shor-code analog.**
+Aniello, Mancini & Parisi `[22]` built a p-adic quNit model on a quadratic
+extension of $\mathbb{Q}_p$: states are p-adic statistical operators
+(trace-one selfadjoint operators in the p-adic Hilbert space), and measurements
+are implemented by a **selfadjoint-operator-valued measure (SOVM)** — the p-adic
+analog of a POVM. The existence of the SOVM is significant: it means a p-adic
+*measurement theory* is already operational, which is precisely the structure a
+p-adic Gleason theorem (Q5) would constrain. The open question: does a logical
+GHZ block analogous to the Shor [[9,1,3]] encoding exist on the p-adic Hilbert
+space? If the p-adic qubit supports only a restricted set of states, the
+block-environment model of Section 2 may need modification — or the Darwinism
+analysis may be carried out entirely in the p-adic qubit basis, with SOVM
+measurements replacing the Archimedean POVMs of the original tradeoff.
+
+**Q8 — Experimental signature of the spectral ladder.**
+Albeverio-Karwowski `[28]` showed the p-adic random walk has a countable
+spectrum with relaxation times $\tau_n \sim p^n$. In a device exhibiting
+power-law noise, this predicts discrete steps in the relaxation spectrum at
+geometrically-spaced frequencies. The open question: do existing noise-
+spectroscopy data sets (e.g., flux-noise spectra of superconducting qubits)
+show structure consistent with a geometric ladder at a small effective prime?
+A targeted literature search for connections between p-adic spectral ladders
+and quantum-device noise spectroscopy returned **no relevant work** — the
+intersection appears genuinely unoccupied, which is itself the evidence that
+this question is open. Re-analysis of published spectra (flux-noise power
+spectral densities are public in the superconducting-qubit literature) is a
+low-cost first test of the hypothesis.
+
+---
+
+### 5.5 Adversarial Review and Calibration (v1.5)
+
+An external critique of an earlier draft (2026-08-05) identified an overstatement
+in the framing of Section 5.1: the claim that "current QEC research treats all
+noise as Archimedean" was read as implying mainstream QEC ignores $1/f$,
+non-Markovian, and correlated noise, which is false — these are active research
+areas handled within real-valued formalisms (noise spectroscopy, dynamical
+decoupling, master equations, correlated-error surface-code models). The
+critique is accepted and the text corrected in v1.5. Two methodological
+commitments follow from this exchange:
+
+1. **The gap claimed is narrow.** This paper does not claim QEC ignores physical
+   noise; it claims QEC treats noise within one geometric framework (the
+   Archimedean one) and has not examined whether the relaxation geometry itself
+   is hierarchical. The ultrametric reformulation is a *question* about the
+   geometry of noise, not a denial of existing noise research.
+
+2. **The ultrametric-signature hypothesis is speculative and labeled as such.**
+   The proposal that power-law noise on real devices carries an effective prime
+   $p$ is `[speculative]` until a measurement exhibits the staircase (Section 4.3)
+   or an alternative ultrametric signature. Its disconfirmation condition is
+   stated: a smooth redundancy-fidelity curve at all accessible scales falsifies
+   the hypothesis at that scale. Reporting this calibration is required by the
+   falsifiability discipline of the research program this paper belongs to
+   `[RETRODICTION risk acknowledged — the correspondence program only carries
+   evidential weight when it produces pre-registered, falsifiable predictions,
+   not post-hoc rationalizations]`.
+
+This review exchange is itself evidence for the paper's central methodological
+claim: the boundary between established physics and speculative mathematics is
+enforced by adversarial calibration, and the ultrametric program's credibility
+depends on it surviving exactly this kind of scrutiny.
 
 ---
 
