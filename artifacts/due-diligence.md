@@ -43,7 +43,27 @@ Result: No durable memories on this topic.
 
 ## 3. Gap Analysis
 
-**Finding:** This is **greenfield territory** within the QNFO ecosystem. No existing QNFO paper:
+**CORRECTION (2026-08-05, Zenodo P5.DUPCHECK):** This finding was WRONG. The initial
+KG/D1/Vectorize search missed the Kepler Program (Zenodo records), which contains substantial
+prior QNFO work on p-adic/adelic QEC:
+
+- 10.5281/zenodo.20556327 — Toward p-adic QEC: The Metric Mismatch Hypothesis (2026-06-05):
+  p-adic stabilizer codes, p-adic weight metric, concatenation theorem
+- 10.5281/zenodo.21214759 — Adelic QEC: Intrinsic Qubit Protection (2026-07-06):
+  proves no Archimedean perturbation moves a p-adic Bruhat-Tits fixed point
+- 10.5281/zenodo.21304526 — Ostrowski to Fault Tolerance (2026-07-11):
+  proves adelic encoding is necessary for any complete QEC scheme
+- 10.5281/zenodo.21314315 — Kepler Program: Complete Framework (2026-07-11)
+
+**REVISED finding:** The genuinely novel intersection is NARROWER but intact: no existing
+QNFO paper (nor any external paper found in Phase 2 search) examines **Quantum Darwinism**
+under ultrametric information metrics, or applies Ostrowski place-democracy to the
+**QEC-Darwinism tradeoff** specifically. The Kepler Program covers adelic ENCODING;
+this paper covers the QEC-DARWINISM TRADEOFF in ultrametric code spaces. The paper has
+been updated to cite all four Kepler records (refs 11-14).
+
+**ORIGINAL FINDING (superseded):** This was greenfield territory within the QNFO ecosystem.
+No existing QNFO paper:
 
 1. Addresses quantum error correction codes quantitatively
 2. Discusses Quantum Darwinism as a mathematical framework

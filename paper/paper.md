@@ -2,7 +2,7 @@
 title: "Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces"
 author: "Rowan Brad Quni-Gudzinas"
 date: "2026-08-05"
-license: "QNFO Unified License Agreement (QNFO-ULA)"
+license: "CC-BY-4.0"
 doi: "TBD"
 status: "draft"
 version: "v0.2-draft-phase4"
@@ -605,6 +605,22 @@ pre-registering these predictions is `[COMMIT_HASH]`.
 
 10. Zurek, W. H. *Quantum Darwinism.* Nature Physics **5**, 181–188 (2009).
     DOI: [10.1038/nphys1202](https://doi.org/10.1038/nphys1202)
+
+11. Quni-Gudzinas, R. B. et al. *Adelic Quantum Error Correction: Intrinsic Qubit
+    Protection from Ostrowski's Theorem.* Zenodo v1.0.0 (2026).
+    DOI: [10.5281/zenodo.21214759](https://doi.org/10.5281/zenodo.21214759)
+
+12. Quni-Gudzinas, R. B. et al. *Ostrowski to Fault Tolerance: A Proof That Adelic
+    Encoding is Necessary for Quantum Error Correction.* Zenodo (2026).
+    DOI: [10.5281/zenodo.21304526](https://doi.org/10.5281/zenodo.21304526)
+
+13. Quni-Gudzinas, R. B. et al. *Toward p-adic Quantum Error Correction: The Metric
+    Mismatch Hypothesis.* Zenodo v1.0.0 (2026).
+    DOI: [10.5281/zenodo.20556327](https://doi.org/10.5281/zenodo.20556327)
+
+14. Quni-Gudzinas, R. B. et al. *Kepler Program: Complete Framework for Adelic
+    Quantum Computing.* Zenodo (2026).
+    DOI: [10.5281/zenodo.21314315](https://doi.org/10.5281/zenodo.21314315)
 
 *Additional references from the CWI poster workspace and external literature
 search will be added during Phase 5 finalization.*
