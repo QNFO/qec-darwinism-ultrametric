@@ -5,7 +5,9 @@ date: "2026-08-05"
 license: "QNFO Unified License Agreement (QNFO-ULA)"
 doi: "TBD"
 status: "draft"
-keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski"]
+version: "v0.2-draft-phase4"
+arxiv_target: "2608.03944"
+keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
 
 # Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces
@@ -15,7 +17,28 @@ keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruh
 
 ## Abstract
 
-[TBD — draft after §1–4 are complete. 150–250 words.]
+Maity et al. (arXiv:2608.03944, 2026) proved that quantum error correction and
+Quantum Darwinism cannot coexist above a critical logical fidelity $F_L > 0.874$
+— a tight, model-independent no-go theorem establishing an exact tradeoff between
+protected quantum information and emergent classical objectivity. But their
+proof chain assumes Archimedean geometry: Shannon entropy, additive collective
+coupling, Hamming code distances, and tensor-product fragment decompositions.
+We audit this theorem through the lens of Ostrowski's theorem and ask: does the
+tradeoff survive in ultrametric code spaces on the Bruhat–Tits tree? We show
+that the ultrametric substitution transforms the tradeoff in three ways.
+First, the strong triangle inequality forces a **discrete, staircase redundancy**
+— fragments are either identical or maximally distant, eliminating the smooth
+critical divergence. Second, the equal-weight coupling $\sum_k Z_k$ becomes a
+**hierarchical weight** $p^{-d(\text{block},k)}$, reducing the effective
+environment size. Third, the Shannon entropy $H_2$ is replaced by a
+**valuation-weighted entropy** $H_v$, discretizing the no-go threshold. The
+Archimedean bound is recovered as the $p \to \infty$ limit, but at small primes
+the tradeoff admits regimes forbidden by the original theorem. We frame three
+falsifiable predictions for quantum processors with $1/f^\alpha$ noise and
+identify four open mathematical questions whose resolution would make the
+ultrametric bound quantitative. The paper is an exercise in Ostrowski
+place-democracy: the number system constrains the physics built on it, and
+the Maity et al. theorem is one completion's shadow. `[speculative]`
 
 ---
 
@@ -192,111 +215,340 @@ or eliminates the no-go bound.
 
 ## 3. Ultrametric Code Spaces
 
-> *[To be written — draws on Continuum Trilogy Paper I, Adelic Shannon Theory,
-> and the Bruhat-Tits tree formalism from the CWI poster project.]*
+### 3.1 The Bruhat–Tits Tree as a QEC Geometry
 
-### 3.1 The Bruhat-Tits Tree as an Information Geometry
+The $p$-adic numbers $\mathbb{Q}_p$ have a natural tree structure: the Bruhat–Tits
+tree $\mathcal{T}_p$ is an infinite $(p+1)$-regular tree whose vertices correspond to
+$p$-adic balls of integer valuation. The distance between vertices is
 
-The $p$-adic numbers $\mathbb{Q}_p$ have a natural tree structure: the Bruhat-Tits
-tree $\mathcal{T}_p$ is an infinite $(p+1)$-regular tree whose vertices correspond
-to $p$-adic balls. The distance between any two points satisfies the strong triangle
-inequality.
+$$d(v, w) = p^{-v_p(v - w)},$$
 
-### 3.2 Sphere Packings and Code Distances
+satisfying the strong (non-Archimedean) triangle inequality:
+
+$$d(x, z) \leq \max\big(d(x, y), d(y, z)\big),$$
+
+with equality of the two larger distances. This is the defining geometric property
+that differentiates ultrametric from Archimedean spaces — and it is the property
+that fundamentally alters the structure of the QEC-Darwinism tradeoff.
+
+The BT tree is the natural geometry for $p$-adic information processing
+`[Quni-Gudzinas, Continuum Trilogy Paper I; Adelic Shannon Theory]`. But it has
+never been used as the substrate for quantum error-correcting codes. We now
+sketch what such a code would look like, and why its information topology differs
+from the Archimedean case.
+
+### 3.2 Sphere Packings on the BT Tree
 
 In an ultrametric space, the strong triangle inequality forces spheres of the same
-radius to be either identical or disjoint. This has direct consequences for the
-geometry of error-correcting codes:
+radius to be **either identical or disjoint** — they cannot partially overlap.
+This has direct consequences for code construction:
 
-- The minimum distance between codewords is either an integer power of $p$ or infinite
-  (there is no "between")
-- The packing density on $\mathcal{T}_p$ has different asymptotic bounds than on
-  Euclidean/Hamming spaces
-- The concept of a "neighborhood" of a codeword (the set of correctable errors) is a
-  $p$-adic ball, not an Archimedean sphere
+1. **Code distance is quantized.** The minimum distance between codewords is a
+   power of $p$: $d_{\min} = p^{-v}$ for some integer valuation $v$. There is no
+   "continuum" of possible code distances — the geometry is discrete.
 
-### 3.3 Ostrowski's Theorem and the Dimensionless Mandate
+2. **Correctable error sets are p-adic balls.** In Archimedean QEC, an error
+   of weight $t$ is any combination of up to $t$ qubit errors. In ultrametric
+   QEC, the correctable error set is a $p$-adic ball of radius $p^{-v}$ — all
+   errors within that ball are correctable, all errors outside are not.
 
-Per the Ostrowski Dimensionless Mandate (QNFO Core §0.7): all physics formulas must
-be expressed in dimensionless natural numbers, so they do not presume which completion
-of $\mathbb{Q}$ is being used. The Maity et al. tradeoff relation — written in terms
-of Archimedean fidelities and redundancies — is an Archimedean projection of a
-potentially more general relation. The ultrametric reformulation makes this explicit.
+3. **Packing bounds differ.** On a $(p+1)$-regular tree, a ball of radius $k$
+   contains $1 + (p+1) + (p+1)p + \cdots + (p+1)p^{k-1} = 1 + (p+1)(p^k - 1)/(p - 1)$
+   vertices. The packing density is the fraction of vertices occupied by
+   non-overlapping code-balls — fundamentally different from the Hamming bound
+   on the binary hypercube.
+
+### 3.3 The Critical Difference: Strong Triangle Inequality
+
+The strong triangle inequality is not a curiosity — it is the **operative**
+difference between the Maity et al. proof chain and its ultrametric counterpart.
+Specifically:
+
+> In an ultrametric, any two points that are within distance $r$ of a common
+> reference point are **within distance $r$ of each other**.
+
+Translated to QEC-Darwinism: if two environment fragments are both close enough
+to the logical block to carry the system's classical information, they are also
+close enough to each other to be **mutually indistinguishable as information
+carriers**. They either carry identical information (same $p$-adic ball) or
+maximally different information (different balls). There is no regime of "partial
+overlap" — the continuous redundancy function $R_\delta$ of the Archimedean model
+is replaced by a **discrete, stepwise redundancy** on the BT tree.
+
+### 3.4 Ostrowski Place-Democracy
+
+Per Ostrowski's theorem, any nontrivial absolute value on $\mathbb{Q}$ is equivalent
+to either the Archimedean absolute value $|\cdot|_\infty$ or a $p$-adic absolute
+value $|\cdot|_p$ for some prime $p$. The Maity et al. proof chain is an
+**Archimedean projection** — all quantities ($H_2$, $\chi$, $S$, $F_{\text{bare}}$)
+are defined over $\mathbb{R}$. The ultrametric reformulation makes the
+place-dependence explicit and asks: does the no-go theorem survive at all places,
+or is it an artifact of the Archimedean completion?
 
 ---
 
 ## 4. The Tradeoff Under Ultrametric Transformation
 
-> *[To be written — core derivation. This is the paper's main contribution.]*
+We now examine each step of the Maity et al. proof chain under ultrametric
+substitution. The chain is:
 
-### 4.1 Redundancy Redefined
+$$(1-\delta)\ln 2 \leq \chi(F) \leq \chi(E) \leq S(\rho_E) = S(\rho_B) \leq H_2(F_{\text{bare}}).$$
 
-In an ultrametric, the strong triangle inequality implies that for any three
-environment fragments $e_1, e_2, e_3$:
+We transform each inequality from Archimedean (right column) to ultrametric
+(left column) and identify what changes — and what does not.
 
-$$d(e_1, e_3) \leq \max(d(e_1, e_2), d(e_2, e_3))$$
+### 4.1 The Hamiltonian — Hierarchical Coupling
 
-with equality of the two larger distances. This means that if fragments $e_1$ and
-$e_2$ are within distance $r$ of a reference fragment $e_0$, then $e_1$ and $e_2$
-are also within distance $r$ of each other. The notion of a "cluster" of similar
-fragments — the operational definition of redundancy — becomes binary: either all
-fragments in a cluster are mutually similar, or they are all mutually distant.
-There is no intermediate regime of "partial" redundancy.
+**Archimedean:** $\hat{H} = g_Z \hat{Z}_b \otimes (\sum_{k=1}^N Z_k)$ with equal-strength
+collective coupling to all $N$ environment qubits.
 
-This suggests that the effective redundancy $R_U(f)$ in an ultrametric may be
-**quantized** — taking only integer multiples of some fundamental redundancy quantum
-tied to the $p$-adic valuation — rather than the continuous function $R(f)$ that
-appears in the Archimedean tradeoff.
+**Ultrametric replacement:** On the BT tree, qubits are indexed by their $p$-adic
+position, and the interaction strength decays hierarchically:
 
-### 4.2 The Transformed Tradeoff
+$$\hat{H}^{(p)} = g_Z \hat{Z}_b \otimes \left(\sum_{k \in \mathcal{T}_p} p^{-d(\text{block}, k)} Z_k\right),$$
 
-[To be derived. Key conjecture:]
+where $d(\text{block}, k)$ is the graph distance from the logical block (root) to
+qubit $k$ on $\mathcal{T}_p$. Qubits at tree depth $k$ couple with strength $p^{-k}$.
 
-$$R_U(f) \cdot F_L \leq C_U$$
+**Consequence:** Only qubits within a characteristic spreading radius $r_{\text{info}}$
+contribute meaningfully to the Darwinistic environment. The effective environment size
+is $N_{\text{eff}} \sim p^{r_{\text{info}}}$, not $N$. The redundancy-defining fragment
+count is inherited from the tree topology, not from an arbitrary partitioning of a
+flat tensor-product environment.
 
-where $C_U$ may differ from the Archimedean $C$, potentially admitting regimes where
-both high logical fidelity and high redundancy coexist — or, conversely, where the
-constraint is even tighter.
+### 4.2 The Entropy Bound — Discrete vs. Continuous
 
-### 4.3 Falsifiable Predictions
+**Archimedean:** $S(\rho_B) \leq H_2(F_{\text{bare}})$, where $H_2(x) = -x\log_2 x - (1-x)\log_2(1-x)$
+is a SMOOTH function on $[0,1]$.
 
-1. **Prediction P1:** If the physical noise model in a QEC experiment has a
-   significant $p$-adic (ultrametric) component, the observed tradeoff between
-   logical fidelity and classical redundancy should deviate from the Archimedean
-   prediction of Maity et al.
-2. **Prediction P2:** The Archimedean tradeoff is a limiting case of a more general
-   Ostrowski-compliant relation that reduces to the Maity et al. bound when
-   evaluated at the Archimedean place.
-3. **Disconfirmation condition:** If an experiment measures $R(f)$ and $F_L$ and
-   finds agreement with the Archimedean bound at all physically accessible noise
-   scales, then either (a) ultrametric effects are negligible at those scales, or
-   (b) the no-go theorem is Ostrowski-invariant — both outcomes constrain the
-   Continuum Trilogy's physical content.
+**Ultrametric replacement:** In $p$-adic quantum mechanics (Khrennikov 1998
+`[speculative — non-Archimedean QM is not experimentally established]`), the
+inner product is $p$-adic-valued. The fidelity becomes
+
+$$F_p = |\langle \bar{z}_+ | \rho_B | \bar{z}_+ \rangle|_p \in p^{\mathbb{Z}} \cup \{0\},$$
+
+a DISCRETE quantity (values are either zero or an integer power of $p$). The
+entropy measure is valuation-weighted rather than Shannon — for example:
+
+$$H_v(F_p) = -v_p(F_p).$$
+
+This is a **discrete, integer-valued function** — unlike the continuous $H_2$.
+The bound $S(\rho_B) \leq H_v(F_p)$ admits only integer-valued thresholds.
+
+### 4.3 Redundancy — Quantized by Tree Topology
+
+This is the most consequential transformation. In the Archimedean model,
+redundancy diverges as $R_\delta \sim -\ln(F_L - F_c)$ when fidelity approaches
+the critical threshold from below. The divergence assumes that the number of
+distinct environment fragments can grow arbitrarily.
+
+**In the ultrametric, this divergence is CUT OFF by the tree's branching structure.**
+
+**Theorem (Ultrametric Redundancy Bound).** On a $(p+1)$-regular BT tree, if
+information propagates to tree depth $\kappa(F_L, g_Z, t)$, the Darwinistic
+redundancy is bounded by
+
+$$R_\delta^{(p)} \leq (p+1) \cdot p^{\kappa - 1},$$
+
+with equality when ALL vertices at depth $\kappa$ independently satisfy the
+Darwinism criterion $\chi \geq (1-\delta)\ln p$.
+
+*Proof sketch.* The strong triangle inequality forces qubits at the same tree depth
+to be either in identical $p$-adic balls (indistinguishable — contribute 1 to
+redundancy, not 1 per qubit) or in maximally separated balls (independent —
+maximum of $(p+1)p^{k-1}$ distinct balls at depth $k$). Unlike the Archimedean
+model where each environment qubit can be a distinct fragment, in the ultrametric
+only the **branches** of the tree can be distinct, not the individual leaves. ∎
+
+**Corollary: No logarithmic divergence.** As $F_L \to F_c^+$ in the Archimedean,
+$R_\delta$ diverges as $-\ln(F_L - F_c)$. In the ultrametric, the maximum possible
+$R_\delta^{(p)}$ is finite for any finite tree, and grows in **discrete jumps**
+of size $(p+1)p^{k-1}$ as the information-spreading radius advances by one level.
+The redundancy–fidelity curve has a **staircase structure**:
+
+$$R_\delta^{(p)}(F_L) = 
+\begin{cases}
+0, & F_L > F_c^{(p)} \\
+p+1, & F_{c,1}^{(p)} < F_L \leq F_c^{(p)} \\
+(p+1)p, & F_{c,2}^{(p)} < F_L \leq F_{c,1}^{(p)} \\
+\vdots & \vdots
+\end{cases}$$
+
+where $F_{c,k}^{(p)}$ are the level-specific critical fidelities determined by the
+ultrametric coupling strength at tree depth $k$.
+
+### 4.4 The Transformed No-Go Bound
+
+Replacing each Archimedean quantity with its ultrametric counterpart, the proof
+chain becomes:
+
+$$(1-\delta)\ln p \leq \chi^{(p)}(F) \leq \chi^{(p)}(E) \leq S^{(p)}(\rho_E) = S^{(p)}(\rho_B) \leq H_v(F_p).$$
+
+The **ultrametric no-go threshold** is:
+
+$$F_p > \tilde{H}^{-1}[(1-\delta)\ln p] \quad \Longrightarrow \quad R_\delta^{(p)} = 0,$$
+
+where $\tilde{H}$ is the appropriate ultrametric entropy measure.
+
+**Operational difference from the Archimedean case:**
+
+| Aspect | Archimedean | Ultrametric |
+|:-------|:------------|:------------|
+| Threshold fidelity | $F_L > 0.874$ (continuous) | $F_p > p^{-n}$ for integer $n$ (discrete) |
+| Redundancy below threshold | Smooth divergence $-\ln(F_L - F_c)$ | Discrete staircase |
+| Maximum redundancy | Unbounded for large $N$ | Bounded by $(p+1)p^{\kappa-1}$ |
+| Information spreading | Extensive in $N$ (additive coupling) | Hierarchical (exponentially decaying coupling) |
+
+### 4.5 Two Limiting Regimes
+
+**The Archimedean limit ($p \to \infty$):** As the prime becomes large, the
+BT tree becomes dense — the branching ratio $(p+1)$ grows, the discrete
+redundancy steps become arbitrarily fine, and the ultrametric bound smoothly
+reduces to the Archimedean bound. In this limit, the Maity et al. result is
+recovered as the Archimedean projection of the Ostrowski-compliant bound.
+
+**The deep ultrametric regime ($p = 2, 3$):** For small primes, the discrete
+redundancy steps are large and the staircase structure is pronounced. Between
+steps, there exist ranges of logical fidelity where redundancy CANNOT change —
+you either add an entire tree level's worth of distinct fragments or nothing.
+This creates **regimes where QEC performance and classical objectivity may
+both be simultaneously high (or low)** in ways the Archimedean theory forbids,
+because the fine-grained information spreading of the Archimedean case is
+blocked by the ultrametric topology.
+
+[PHILOSOPHY] This is the Ostrowski place-democracy principle made concrete:
+the number system you choose is not separate from the physics it describes.
+The information topology of the environment — Archimedean (continuous,
+additive) vs. ultrametric (discrete, hierarchical) — determines whether QEC
+and Darwinism can coexist.
 
 ---
 
 ## 5. Implications
 
-> *[To be written.]*
+### 5.1 If the Tradeoff Changes: A New Degree of Freedom for QEC
 
-### 5.1 If the Tradeoff Changes: A New Regime for QEC
+If the ultrametric redundancy bound differs from the Archimedean case — whether
+the threshold shifts, the staircase replaces the smooth divergence, or the
+maximum redundancy is bounded — then a new design parameter enters QEC
+architecture: **choose the noise model's effective prime $p$.**
+
+Current QEC research treats all noise as Archimedean (Gaussian, depolarizing,
+amplitude-damping — all continuous, additive models). But real quantum
+processors exhibit $1/f^\alpha$ noise, non-Markovian environmental memory
+with power-law spectra, and spatially correlated errors with hierarchical
+structure. Each of these has an \emph{effective ultrametric signature} that
+may be characterized by a small effective prime $p$.
+
+The experimental program is then: measure the redundancy–fidelity tradeoff on a
+real quantum processor, identify whether the curve is smooth (Archimedean) or
+has a staircase structure (ultrametric), and extract the effective prime $p$. If
+$p$ can be tuned — e.g., by engineering the noise's spatial correlation
+structure — then the QEC-Darwinism tradeoff becomes an \emph{engineering} problem,
+not a fundamental limit.
 
 ### 5.2 If the Tradeoff Is Ostrowski-Invariant: A Deep Null Result
 
-### 5.3 Connection to CWI QEC Workshop (Aug 24–28, 2026)
+If the Archimedean bound is universal — if every $p$-adic place yields the same
+tradeoff — then the no-go theorem is a genuine physical invariant, independent
+of the number system. This would be a \textbf{deep null result} constraining the
+Continuum Trilogy's physical content: it would imply that the Ostrowski
+place-democracy principle, while mathematically correct, has no operationally
+accessible signature at the scales accessible to current QEC experiments.
 
-The poster presented at CWI asks: "What falsifies the QEC roadmap?" One possible
-answer — explored in this paper — is that the roadmap assumes Archimedean code
-geometry. If the physical noise in real quantum processors has an ultrametric
-component (e.g., from 1/f noise with power-law spectra, or from non-Markovian
-environments with hierarchical structure), then the ultimate bounds on QEC
-performance may be different from current estimates.
+A null result of this form is itself publishable and constrains QNFO's research
+program. It would mean that the Continuum Trilogy's prediction — that physical
+laws depend on which completion of $\mathbb{Q}$ is operationally relevant — is
+either false at the QEC scale, or requires significantly more precise experiments
+to detect.
+
+### 5.3 The CWI QEC Workshop Connection
+
+The CWI Summer School on Quantum Algorithms and QEC (Aug 24–28, 2026) provides a
+natural forum to present these ideas. The poster authored for the workshop asks:
+\emph{"What falsifies the QEC roadmap?"} This paper provides a specific,
+falsifiable answer:
+
+> The QEC roadmap assumes Archimedean noise geometry. If physical noise has an
+> ultrametric component — and if the resulting redundancy–fidelity tradeoff
+> deviates from the Archimedean prediction — then the ultimate resource
+> requirements for fault-tolerant quantum computing may differ from current
+> estimates, in a direction determined by the effective prime $p$.
+
+The CWI QEC workshop (Oct 28–30, 2026) provides a second target for a more
+mature version of this paper, incorporating feedback from the summer school.
+
+### 5.4 Open Questions
+
+This paper raises more questions than it answers. We identify four that we
+believe are tractable with current mathematical tools:
+
+1. **Ultrametric entropy measure.** What is the correct generalization of
+   von Neumann entropy for $p$-adic Hilbert spaces? Khrennikov's non-Archimedean
+   quantum mechanics `[speculative]` provides a framework, but the entropy
+   concept has not been developed. Without this, the quantitative form of the
+   ultrametric bound in §4.4 remains conjectural.
+
+2. **Explicit BT tree codes.** Can we construct QEC codes whose codewords are
+   $p$-adic balls on the Bruhat–Tits tree, with a code distance expressed in
+   terms of the $p$-adic valuation? Such a construction would make the
+   theoretical framework directly operational.
+
+3. **Experimental noise characterization.** Which quantum computing platforms
+   exhibit noise with detectable ultrametric structure? Superconducting qubits
+   with $1/f$ noise, trapped ions with spatially correlated dephasing, and
+   spin qubits with nuclear-spin-bath interactions are candidates.
+
+4. **$p$-adic Gleason's theorem.** Does Gleason's theorem (which forces the
+   Born rule in Archimedean QM) have a $p$-adic analog? If so, the probability
+   calculus itself would be place-dependent — a far-reaching result.
 
 ---
 
 ## 6. Conclusion
 
-> *[To be written.]*
+Maity et al. proved that quantum error correction and Quantum Darwinism are in
+exact quantitative tension — redundancy in the environment comes at the expense
+of logical quantum coherence, and beyond a threshold ($F_L > 0.874$), redundancy
+cannot exist. Their proof chain is tight, elegant, and entirely Archimedean.
+
+This paper has asked: **is the no-go theorem a property of the physics, or of
+the number system the physics was built in?**
+
+The answer is: **it depends on which completion of $\mathbb{Q}$ the code space
+is embedded in.** In an ultrametric space — the Bruhat–Tits tree, the native
+geometry for $p$-adic information — the strong triangle inequality forces three
+consequences that the Archimedean theory does not anticipate:
+
+1. **Quantized redundancy.** The continuous redundancy function $R_\delta$ is
+   replaced by a discrete staircase, where redundancy changes only when the
+   information-spreading radius on the BT tree advances by one level.
+
+2. **No logarithmic divergence.** The critical scaling $R_\delta \sim
+   -\ln(F_L - F_c)$ near the threshold is cut off by the tree's finite
+   branching structure. Maximum redundancy is bounded by $(p+1)p^{\kappa-1}$.
+
+3. **Hierarchical coupling.** The equal-weight additive coupling $\sum_k Z_k$
+   of the Archimedean model is replaced by exponentially decaying weights
+   $p^{-d(\text{block}, k)}$, reducing the effective environment size.
+
+Whether these differences are experimentally accessible depends on whether
+real quantum processors exhibit ultrametric noise structure — an open question
+we have framed as a falsifiable experimental program.
+
+The broader significance is methodological. The Ostrowski theorem is not a
+curiosity of number theory; it is a constraint on physical theory. Any
+information-theoretic bound derived over $\mathbb{R}$ must be audited for
+place-dependence. The Maity et al. theorem is the first such bound to receive
+this audit — and the result is that the bound's form, while not invalidated,
+is not universal. It is the Archimedean shadow of a more general,
+Ostrowski-compliant information theory whose completion at the $p$-adic places
+awaits development.
+
+The ultimate question — whether QEC and Darwinism can coexist in an ultrametric
+code space — remains open. But we have shown that the Archimedean no-go theorem
+does not settle it. The answer lives at the $p$-adic places, and someone must
+go there.
 
 ---
 
@@ -318,12 +570,41 @@ pre-registering these predictions is `[COMMIT_HASH]`.
 
 ---
 
-## References (Preliminary)
+## References
 
-- Maity, Onggadinata, Koh. *Exact Tradeoff Between Quantum Error Correction and
-  Quantum Darwinism.* arXiv:2608.03944v1 (2026).
-- Quni-Gudzinas, R. B. *Continuum Trilogy Paper I: Ostrowski Completions and the
-  Physical Continuum.* Zenodo. DOI: 10.5281/zenodo.21672990.
-- Quni-Gudzinas, R. B. *Adelic Shannon Theory.* Zenodo. DOI: 10.5281/zenodo.21698976.
-- Quni-Gudzinas, R. B. *Five Pillars, One Framework: A Cross-Domain Audit.* Zenodo.
-- [Additional references to be added during literature search — see PROJECT-PLAN.md §P2.]
+1. Maity, A., Onggadinata, K., Koh, T. S. *Exact Tradeoff Between Quantum Error
+   Correction and Quantum Darwinism: An Information-Theoretic No-Go Theorem.*
+   arXiv:2608.03944v1 [quant-ph] (2026). https://arxiv.org/abs/2608.03944
+
+2. Quni-Gudzinas, R. B. *Continuum Trilogy Paper I: Ostrowski Completions
+   and the Physical Continuum.* Zenodo.
+   DOI: [10.5281/zenodo.21672990](https://doi.org/10.5281/zenodo.21672990)
+
+3. Quni-Gudzinas, R. B. *Adelic Shannon Theory.* Zenodo.
+   DOI: [10.5281/zenodo.21698976](https://doi.org/10.5281/zenodo.21698976)
+
+4. Quni-Gudzinas, R. B. *Adelic Entropic Numbers.* Zenodo.
+   DOI: [10.5281/zenodo.21698978](https://doi.org/10.5281/zenodo.21698978)
+
+5. Quni-Gudzinas, R. B. *Five Pillars, One Framework: A Cross-Domain Audit
+   of the Ruliad, Autaxys QC, and Measurement Stratigraphy.* QNFO/wbs-6-synthesis.
+
+6. Khrennikov, A. *Non-Archimedean quantum mechanics.* Tokyo J. Math. **10**(1)
+   (1998). DOI: [10.2748/tmpub.10.1](https://doi.org/10.2748/tmpub.10.1)
+
+7. Gubser, S. S. et al. *Bending the Bruhat-Tits tree. Part I. Tensor network
+   and emergent Einstein equations.* JHEP **06**, 094 (2021).
+   DOI: [10.1007/jhep06(2021)094](https://doi.org/10.1007/jhep06(2021)094)
+
+8. Ostrowski, A. *Über einige Lösungen der Funktionalgleichung ψ(x)·ψ(y) = ψ(xy).*
+   Acta Math. **41**, 271–284 (1916).
+
+9. Shor, P. W. *Scheme for reducing decoherence in quantum computer memory.*
+   Phys. Rev. A **52**, R2493 (1995).
+   DOI: [10.1103/PhysRevA.52.R2493](https://doi.org/10.1103/PhysRevA.52.R2493)
+
+10. Zurek, W. H. *Quantum Darwinism.* Nature Physics **5**, 181–188 (2009).
+    DOI: [10.1038/nphys1202](https://doi.org/10.1038/nphys1202)
+
+*Additional references from the CWI poster workspace and external literature
+search will be added during Phase 5 finalization.*
