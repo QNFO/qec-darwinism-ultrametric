@@ -79,7 +79,7 @@ tree where distances satisfy the strong triangle inequality
 $$d(x,z) \leq \max(d(x,y), d(y,z))$$
 
 rather than the Archimedean $d(x,z) \leq d(x,y) + d(y,z)$. This changes the
-information topology fundamentally: in an ultrametric, two points are either
+information topology changes: in an ultrametric, two points are either
 identical or maximally distant relative to any third — there is no "partial"
 overlap, no gradual degradation. The concept of "redundancy" — how many
 distinct environment fragments carry the same system information — acquires a
@@ -229,7 +229,7 @@ $$d(x, z) \leq \max\big(d(x, y), d(y, z)\big),$$
 
 with equality of the two larger distances. This is the defining geometric property
 that differentiates ultrametric from Archimedean spaces — and it is the property
-that fundamentally alters the structure of the QEC-Darwinism tradeoff.
+that changes the structure of the QEC-Darwinism tradeoff.
 
 The BT tree is the natural geometry for $p$-adic information processing
 `[Quni-Gudzinas, Continuum Trilogy Paper I; Adelic Shannon Theory]`. But it has
@@ -255,7 +255,7 @@ This has direct consequences for code construction:
 3. **Packing bounds differ.** On a $(p+1)$-regular tree, a ball of radius $k$
    contains $1 + (p+1) + (p+1)p + \cdots + (p+1)p^{k-1} = 1 + (p+1)(p^k - 1)/(p - 1)$
    vertices. The packing density is the fraction of vertices occupied by
-   non-overlapping code-balls — fundamentally different from the Hamming bound
+   non-overlapping code-balls — structurally different from the Hamming bound
    on the binary hypercube.
 
 ### 3.3 The Critical Difference: Strong Triangle Inequality
@@ -445,7 +445,7 @@ real quantum processor, identify whether the curve is smooth (Archimedean) or
 has a staircase structure (ultrametric), and extract the effective prime $p$. If
 $p$ can be tuned — e.g., by engineering the noise's spatial correlation
 structure — then the QEC-Darwinism tradeoff becomes an \emph{engineering} problem,
-not a fundamental limit.
+not an insurmountable limit.
 
 ### 5.2 If the Tradeoff Is Ostrowski-Invariant: A Deep Null Result
 
@@ -596,7 +596,7 @@ pre-registering these predictions is `[COMMIT_HASH]`.
    and emergent Einstein equations.* JHEP **06**, 094 (2021).
    DOI: [10.1007/jhep06(2021)094](https://doi.org/10.1007/jhep06(2021)094)
 
-8. Ostrowski, A. *Über einige Lösungen der Funktionalgleichung ψ(x)·ψ(y) = ψ(xy).*
+8. Ostrowski, A. *Über einige Lösungen der Funktionalgleichung* $\psi(x)\cdot\psi(y) = \psi(xy)$.
    Acta Math. **41**, 271–284 (1916).
 
 9. Shor, P. W. *Scheme for reducing decoherence in quantum computer memory.*
