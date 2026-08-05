@@ -83,29 +83,110 @@ between the number system and the physics built on it.
 
 ## 2. The No-Go Theorem (Summary of Maity et al.)
 
-> *[To be written — requires deep read of the full 70KB arXiv paper.]*
+The Maity et al. framework is the first quantitative connection between QEC and
+Quantum Darwinism. We summarize it here as the *auditing target* — the
+Archimedean theorem whose ultrametric transformation is the subject of this paper.
 
 ### 2.1 The Block-Environment Model
 
-The Shor [[9,1,3]] code encodes one logical qubit into nine physical qubits. The
-logical GHZ block is a specific 3-qubit subsystem that carries the logical
-information.
+A logical qubit is encoded in one GHZ block of the Shor [[9,1,3]] code. The
+logical basis is formed by the orthogonal codewords
 
-### 2.2 Key Quantities
+$$|\bar{z}_{\pm}\rangle_b = \frac{|000\rangle \pm |111\rangle}{\sqrt{2}},$$
 
-| Quantity | Symbol | Definition | Metric |
-|:---------|:-------|:-----------|:-------|
-| Logical fidelity | $F_L$ | Overlap between recovered and initial logical state | Trace distance (Archimedean) |
-| Holevo information | $\chi$ | Accessible classical information about the system in environment fragment | von Neumann entropy (Archimedean) |
-| Darwinistic redundancy | $R(f)$ | Number of distinct environment fragments carrying >f fraction of Holevo info | Counting (Archimedean) |
+while each of $N$ environment qubits is initialized in $|+\rangle = (|0\rangle + |1\rangle)/\sqrt{2}$.
+The block interacts with the environment through the Hamiltonian
 
-### 2.3 The Tradeoff Derivation
+$$\hat{H} = g_Z \hat{Z}_b \otimes \hat{S}_Z + g_X \hat{X}_b \otimes \hat{S}_X,$$
 
-[To be written.]
+where $\hat{S}_Z = \sum_{k=1}^N Z_k$ and $\hat{S}_X = \sum_{k=1}^N X_k$ are collective
+spin operators. The exactly solvable limit is $g_X = 0$ (commuting sector); the
+full Hamiltonian with $g_X \neq 0$ is treated numerically to confirm robustness.
 
-### 2.4 The No-Go Theorem (Model-Independent)
+### 2.2 Key Quantities (All Archimedean)
 
-[To be written. Key claim: $F_L > F_L^{\text{crit}} \Rightarrow R(f) = 0$ for any model.]
+| Quantity | Symbol | Expression |
+|:---------|:-------|:-----------|
+| Logical fidelity | $F_L(N)$ | Post-recovery overlap with initial logical state; function of $g_Z, t, N$, and imperfect recovery efficiency $\eta$ |
+| Bare logical fidelity | $F_{\text{bare}}$ | $F_{\text{bare}} = (F_L(N) - \eta)/(1-\eta)$ — fidelity before syndrome extraction |
+| Holevo information | $\chi(F)$ | Accessible classical information about the system in environment fragment $F$ |
+| Darwinistic redundancy | $R_\delta$ | $\#\{F \subset E : \chi(F) \geq (1-\delta) \ln 2\}$ — number of distinct non-overlapping fragments carrying near-complete classical information |
+| Darwinism threshold | $\delta$ | Typical value $\delta = 0.10$ |
+| Recovery efficiency | $\eta$ | Imperfect syndrome extraction efficiency; typical value $\eta = 0.60$ |
+
+### 2.3 Lemma 1 — Block Entropy Bound (Archimedean)
+
+For any qubit block state $\rho_B$ with bare logical fidelity $F_{\text{bare}} =
+\langle \bar{z}_+ | \rho_B | \bar{z}_+ \rangle$, the von Neumann entropy satisfies
+
+$$S(\rho_B) \leq H_2(F_{\text{bare}}),$$
+
+where $H_2(x) = -x \log_2 x - (1-x) \log_2 (1-x)$ is the binary entropy.
+**Equality holds** if and only if $\rho_B$ is diagonal in the logical basis.
+
+*Proof sketch.* Writing $\rho_B$ as a $2 \times 2$ matrix in the logical basis
+with off-diagonal element $c$, the entropy satisfies $S(\rho_B) \leq H_2(F_{\text{bare}})$
+for all $|c|$, with equality at $|c| = 0$. ∎
+
+### 2.4 Theorem 1 — The No-Go Theorem (Model-Independent, Archimedean)
+
+**If** $F_{\text{bare}} > H_2^{-1}[(1-\delta)\ln 2]$, **then no environment
+fragment can satisfy the Darwinism criterion.** Consequently, $R_\delta = 0$,
+regardless of the microscopic Hamiltonian or environment structure.
+
+**Proof chain** (all inequalities become equalities in the solvable model):
+
+$$(1-\delta)\ln 2 \leq \chi(F) \leq \chi(E) \leq S(\rho_E) = S(\rho_B) \leq H_2(F_{\text{bare}}).$$
+
+- $\chi(F) \geq (1-\delta)\ln 2$ — Darwinism criterion assumed for contradiction
+- $\chi(F) \leq \chi(E)$ — monotonicity of Holevo information
+- $\chi(E) \leq S(\rho_E)$ — Holevo bound
+- $S(\rho_E) = S(\rho_B)$ — purification property for pure $|\Psi\rangle_{BE}$
+- $S(\rho_B) \leq H_2(F_{\text{bare}})$ — Lemma 1
+- Since $H_2$ is monotone decreasing on $[1/2, 1]$:
+  **$F_{\text{bare}} \leq H_2^{-1}[(1-\delta)\ln 2]$**
+
+Contradiction with the hypothesis. ∎
+
+### 2.5 Corollary — Imperfect Recovery
+
+For the imperfect-recovery model, the no-go threshold becomes:
+
+$$F_L(N) > \eta + (1-\eta) \cdot H_2^{-1}[(1-\delta)\ln 2] \quad \Longrightarrow \quad R_\delta = 0.$$
+
+**Operational example:** For $\delta = 0.10$ and $\eta = 0.60$, the threshold is
+
+$$F_L(N) > 0.874 \quad \Longrightarrow \quad \text{zero Darwinistic redundancy}.$$
+
+Any logical qubit protected with fidelity exceeding 87.4% produces ZERO redundant
+classical records — the qubit is quantum-coherent but classically invisible.
+
+### 2.6 Exact Tradeoff (Solvable Model Saturation)
+
+In the exactly solvable limit $g_X = 0$, the solvable model saturates every
+inequality in the proof chain:
+
+$$\chi(E) = S(\rho_E) = S(\rho_B) = H_2(F_{\text{bare}}).$$
+
+Every bit of logical entropy generated in the block is converted into **accessible
+classical information** in the environment. The solvable model achieves the
+*maximum* Darwinistic redundancy compatible with a given logical fidelity,
+while the no-go theorem shows that no other dynamics can exceed this limit.
+
+**Critical scaling:** As the logical fidelity approaches the threshold from below,
+
+$$R_\delta \sim -\ln\big(F_L(N) - F_c\big) \quad \text{as} \quad F_L(N) \to F_c^+,$$
+
+where $F_c = \eta + (1-\eta) \cdot H_2^{-1}[(1-\delta)\ln 2]$. The redundancy
+diverges logarithmically, vanishing above the no-go threshold.
+
+### 2.7 The Archimedean Shadow
+
+The entire framework — Hamming distance, additive collective coupling, Shannon
+entropy $H_2$, trace-distance fidelity, tensor-product environment — assumes
+the Archimedean place. The question our reformulation asks is whether the
+Ostrowski-compliant generalization of these quantities preserves, modifies,
+or eliminates the no-go bound.
 
 ---
 
