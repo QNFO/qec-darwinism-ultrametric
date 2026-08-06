@@ -3,9 +3,9 @@ title: "Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces"
 author: "Rowan Brad Quni-Gudzinas"
 date: "2026-08-05"
 license: "CC-BY-4.0"
-doi: "10.5281/zenodo.21817396"
+doi: "10.5281/zenodo.21817442"
 status: "published"
-version: "v1.8"
+version: "v1.9"
 arxiv_target: "2608.03944"
 keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
@@ -682,15 +682,23 @@ $F_L = \eta + (1-\eta)F_{\text{bare}}$ (recovery efficiency $\eta = 0.60$,
 the Maity convention) produces three results, one of which is a null that we
 report deliberately:
 
-1. **The model satisfies the no-go theorem exactly.** In the commuting sector
-   the reduced block state is diagonal, so $\chi(E) = S(\rho_E) = S(\rho_B) =
-   H_2(F_{\text{bare}})$ — the full-environment Holevo information saturates
-   the proof chain identically to the Maity solvable model, and the R$\to$0
-   boundary lands at $F_L = 0.874$ for every $(p, K)$ configuration tested.
-   The ultrametric code does not violate the Archimedean no-go bound; the
-   tradeoff itself is place-invariant at the boundary.
+1. **The model satisfies the no-go theorem exactly — at the full-environment
+   level.** In the commuting sector the reduced block state is diagonal, so
+   $\chi(E) = S(\rho_E) = S(\rho_B) = H_2(F_{\text{bare}})$ — the
+   full-environment Holevo information saturates the proof chain identically
+   to the Maity solvable model. Applied to the full environment, the Darwinism
+   criterion $\chi(E) \geq (1-\delta)\ln 2$ is equivalent to
+   $F_{\text{bare}} \leq H_2^{-1}[(1-\delta)\ln 2]$, i.e. $F_L \leq 0.874$.
+   The no-go theorem therefore holds, and its threshold is place-invariant:
+   no $(p, K)$ configuration exhibits redundancy above $F_L = 0.874$.
+   The ultrametric code does not violate the Archimedean no-go bound.
+   (A correction prompted by red-team review: an earlier version claimed the
+   R$\to$0 boundary itself lands at 0.874, which the simulation data does not
+   support — see finding 2. The theorem's threshold is 0.874; the model's
+   per-fragment first-redundancy boundary is not.)
 
-2. **The per-fragment fidelity-resolved staircase is degenerate.** Counting
+2. **The per-fragment fidelity-resolved staircase is degenerate, and its
+   first-redundancy boundary is shifted below the theorem threshold.** Counting
    distinct tree-branch fragments (each depth-$k$ qubit in the Darwinism
    window), $R_\delta$ takes the discrete values
    $\{0, 3, 6, 12, 15, 24, 27, 30\}$ ($p=2$) — the quantization is robust.
@@ -699,12 +707,23 @@ report deliberately:
    \approx 1.19$ rad, by which time the block fidelity has already collapsed
    to $F_{\text{bare}} \approx 0.5$. The fidelity resolution is therefore
    degenerate: both the fidelity collapse and the fragment threshold crossing
-   are driven by the *same* shallowest-level phase.
+   are driven by the *same* shallowest-level phase. Note that the simulation's
+   per-fragment first-redundancy boundary ($F_L \approx 0.80$) is therefore
+   *shifted below* the full-environment theorem threshold ($0.874$): the
+   single-qubit fragment criterion resolves redundancy only after the phase
+   has grown enough to carry (1-$\delta$)$\ln 2$ of information in one qubit,
+   by which time the block is already nearly maximally mixed. This shift is
+   the artifact documented in finding 3 — it is not a violation of the no-go
+   theorem (which guarantees R=0 above 0.874, and says nothing about the
+   per-fragment boundary below it).
 
 3. **The apparent "forbidden window" is a toy-model artifact — null result.**
    The region $F_L \in (0.800, 0.874)$ shows $R = 0$ in the per-fragment
    model despite lying below the no-go threshold, which would naively be read
-   as an ultrametric suppression of redundancy. We tested whether the window
+   as an ultrametric suppression of redundancy. This window is precisely the
+   gap between the per-fragment boundary (finding 2) and the full-environment
+   theorem threshold (finding 1); it is an artifact of the single-qubit
+   fragment criterion, not a place-dependent physical signature. We tested whether the window
    width tunes with the coupling hierarchy by sweeping
    $w_k = p^{-\alpha k}$ over $\alpha \in [0, 3]$: the gap is
    $0.0736$ at $\alpha = 0$ (uniform, Archimedean limit) and shrinks only to
