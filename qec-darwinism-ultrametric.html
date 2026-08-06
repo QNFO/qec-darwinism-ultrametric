@@ -247,11 +247,12 @@ The Archimedean bound is recovered as the <span class="math inline">\(p
 \to \infty\)</span> limit, but at small primes the tradeoff admits
 regimes forbidden by the original theorem. We frame three falsifiable
 predictions for quantum processors with <span
-class="math inline">\(1/f^\alpha\)</span> noise and identify four open
-mathematical questions whose resolution would make the ultrametric bound
-quantitative. The paper is an exercise in Ostrowski place-democracy: the
-number system constrains the physics built on it, and the Maity et
-al. theorem is one completion’s shadow. <code>[speculative]</code></p>
+class="math inline">\(1/f^\alpha\)</span> noise and identify eight open
+mathematical questions (Q1–Q8) whose resolution would make the
+ultrametric bound quantitative. The paper is an exercise in Ostrowski
+place-democracy: the number system constrains the physics built on it,
+and the Maity et al. theorem is one completion’s shadow.
+<code>[speculative]</code></p>
 <hr />
 <h2 id="introduction-a-tradeoff-born-in-one-completion">1. Introduction:
 A Tradeoff Born in One Completion</h2>
@@ -283,8 +284,8 @@ of distinct environment fragments.</p>
 <p><strong>This paper asks: what happens to the tradeoff when the code
 space is structured ultrametrically rather than
 Archimedeanly?</strong></p>
-<p>The question is not idle. Per Ostrowski’s theorem, any quantity
-defined over the rationals <span
+<p>The question is not idle. Per Ostrowski’s theorem <code>[7]</code>,
+any quantity defined over the rationals <span
 class="math inline">\(\mathbb{Q}\)</span> has completions at every place
 — the real Archimedean place <span
 class="math inline">\(\mathbb{R}\)</span> and all <span
@@ -346,7 +347,8 @@ transformation is the subject of this paper.</p>
 <h3 id="the-block-environment-model">2.1 The Block-Environment
 Model</h3>
 <p>A logical qubit is encoded in one GHZ block of the Shor [[9,1,3]]
-code. The logical basis is formed by the orthogonal codewords</p>
+code <code>[8]</code>. The logical basis is formed by the orthogonal
+codewords</p>
 <p><span class="math display">\[|\bar{z}_{\pm}\rangle_b =
 \frac{|000\rangle \pm |111\rangle}{\sqrt{2}},\]</span></p>
 <p>while each of <span class="math inline">\(N\)</span> environment
@@ -537,10 +539,16 @@ spaces — and it is the property that changes the structure of the
 QEC-Darwinism tradeoff.</p>
 <p>The BT tree is the natural geometry for <span
 class="math inline">\(p\)</span>-adic information processing
-<code>[2, 3]</code>. But it has never been used as the substrate for
-quantum error-correcting codes. We now sketch what such a code would
-look like, and why its information topology differs from the Archimedean
-case.</p>
+<code>[2, 3]</code>. It has been used as a substrate for
+<em>error-correcting structures</em> in two distinct lines: the adelic
+QEC program has proposed p-adic stabilizer codes with a p-adic weight
+metric <code>[10-13]</code>, and the p-adic holography program has
+constructed tensor networks on the BT tree that function as
+error-correcting codes <code>[17-19]</code>. What has not been done is
+the specific analysis this paper undertakes: a fidelity-redundancy
+tradeoff analysis of such codes under the QEC-Darwinism competition. We
+now sketch the geometry that such an analysis requires, and why its
+information topology differs from the Archimedean case.</p>
 <h3 id="sphere-packings-on-the-bt-tree">3.2 Sphere Packings on the BT
 Tree</h3>
 <p>In an ultrametric space, the strong triangle inequality forces
@@ -653,8 +661,8 @@ of a flat tensor-product environment.</p>
 class="math inline">\(H_2(x) = -x\log_2 x - (1-x)\log_2(1-x)\)</span> is
 a SMOOTH function on <span class="math inline">\([0,1]\)</span>.</p>
 <p><strong>Ultrametric replacement:</strong> In <span
-class="math inline">\(p\)</span>-adic quantum mechanics (Khrennikov 1998
-<code>[speculative — non-Archimedean QM is not experimentally established]</code>),
+class="math inline">\(p\)</span>-adic quantum mechanics <code>[5]</code>
+<code>[speculative — non-Archimedean QM is not experimentally established]</code>,
 the inner product is <span class="math inline">\(p\)</span>-adic-valued.
 The fidelity becomes</p>
 <p><span class="math display">\[F_p = |\langle \bar{z}_+ | \rho_B |
@@ -666,7 +674,8 @@ valuation-weighted rather than Shannon — for example:</p>
 <p>This is a <strong>discrete, integer-valued function</strong> — unlike
 the continuous <span class="math inline">\(H_2\)</span>. The bound <span
 class="math inline">\(S(\rho_B) \leq H_v(F_p)\)</span> admits only
-integer-valued thresholds.</p>
+integer-valued thresholds, consistent with the entropic structure of
+adelic information measures <code>[4]</code>.</p>
 <h3 id="redundancy-quantized-by-tree-topology">4.3 Redundancy —
 Quantized by Tree Topology</h3>
 <p>This is the most consequential transformation. In the Archimedean
@@ -921,15 +930,17 @@ Gubser, Knaute, Parikh &amp; Samberg <code>[17]</code> established
 p-Adic AdS/CFT; Hung, Li &amp; Melby-Thompson <code>[18]</code> showed
 p-adic CFT is a holographic tensor network built from perfect tensors on
 the BT tree; Heydeman, Marcolli, Saberi &amp; Stoica <code>[19]</code>
-extended the correspondence to algebraic curves. Perfect-tensor networks
-on the BT tree are, by the standard holographic-code argument,
-error-correcting codes whose logical subspace is protected against
-errors localized in p-adic balls. <strong>The code construction
-therefore already exists in the holographic literature</strong> — what
-is missing is the fidelity-redundancy analysis that this paper’s
-framework requires. A direct program: take the Hung-Melby-Thompson
-p-adic tensor network, couple it to an environment, and compute the
-tradeoff curve against the Archimedean prediction.</p>
+extended the correspondence to algebraic curves, and the
+Bending-the-Bruhat-Tits-tree program <code>[6]</code> made the
+emergent-spacetime connection explicit. Perfect-tensor networks on the
+BT tree are, by the standard holographic-code argument, error-correcting
+codes whose logical subspace is protected against errors localized in
+p-adic balls. <strong>The code construction therefore already exists in
+the holographic literature</strong> — what is missing is the
+fidelity-redundancy analysis that this paper’s framework requires. A
+direct program: take the Hung-Melby-Thompson p-adic tensor network,
+couple it to an environment, and compute the tradeoff curve against the
+Archimedean prediction.</p>
 <p><strong>Ultrametric noise (Q3).</strong> This question has a single
 decisive anchor: Avetisov, Bikulov &amp; Osipov <code>[14]</code> proved
 that p-adic ultrametric random walks on hierarchical energy landscapes

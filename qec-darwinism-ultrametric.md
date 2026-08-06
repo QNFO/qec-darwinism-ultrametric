@@ -3,9 +3,9 @@ title: "Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces"
 author: "Rowan Brad Quni-Gudzinas"
 date: "2026-08-05"
 license: "CC-BY-4.0"
-doi: "10.5281/zenodo.21812777"
+doi: "10.5281/zenodo.21813287"
 status: "published"
-version: "v1.5"
+version: "v1.6"
 arxiv_target: "2608.03944"
 keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
@@ -33,7 +33,7 @@ environment size. Third, the Shannon entropy $H_2$ is replaced by a
 Archimedean bound is recovered as the $p \to \infty$ limit, but at small primes
 the tradeoff admits regimes forbidden by the original theorem. We frame three
 falsifiable predictions for quantum processors with $1/f^\alpha$ noise and
-identify four open mathematical questions whose resolution would make the
+identify eight open mathematical questions (Q1–Q8) whose resolution would make the
 ultrametric bound quantitative. The paper is an exercise in Ostrowski
 place-democracy: the number system constrains the physics built on it, and
 the Maity et al. theorem is one completion's shadow. `[speculative]`
@@ -68,7 +68,7 @@ the Shannon-like counting of distinct environment fragments.
 **This paper asks: what happens to the tradeoff when the code space is structured
 ultrametrically rather than Archimedeanly?**
 
-The question is not idle. Per Ostrowski's theorem, any quantity defined over the
+The question is not idle. Per Ostrowski's theorem `[7]`, any quantity defined over the
 rationals $\mathbb{Q}$ has completions at every place — the real Archimedean place
 $\mathbb{R}$ and all $p$-adic non-Archimedean places $\mathbb{Q}_p$. The
 Bruhat-Tits tree is the natural geometry for $p$-adic information: a homogeneous
@@ -124,7 +124,7 @@ Archimedean theorem whose ultrametric transformation is the subject of this pape
 
 ### 2.1 The Block-Environment Model
 
-A logical qubit is encoded in one GHZ block of the Shor [[9,1,3]] code. The
+A logical qubit is encoded in one GHZ block of the Shor [[9,1,3]] code `[8]`. The
 logical basis is formed by the orthogonal codewords
 
 $$|\bar{z}_{\pm}\rangle_b = \frac{|000\rangle \pm |111\rangle}{\sqrt{2}},$$
@@ -244,10 +244,14 @@ that differentiates ultrametric from Archimedean spaces — and it is the proper
 that changes the structure of the QEC-Darwinism tradeoff.
 
 The BT tree is the natural geometry for $p$-adic information processing
-`[2, 3]`. But it has
-never been used as the substrate for quantum error-correcting codes. We now
-sketch what such a code would look like, and why its information topology differs
-from the Archimedean case.
+`[2, 3]`. It has been used as a substrate for *error-correcting structures* in
+two distinct lines: the adelic QEC program has proposed p-adic stabilizer codes
+with a p-adic weight metric `[10-13]`, and the p-adic holography program has
+constructed tensor networks on the BT tree that function as error-correcting
+codes `[17-19]`. What has not been done is the specific analysis this paper
+undertakes: a fidelity-redundancy tradeoff analysis of such codes under the
+QEC-Darwinism competition. We now sketch the geometry that such an analysis
+requires, and why its information topology differs from the Archimedean case.
 
 ### 3.2 Sphere Packings on the BT Tree
 
@@ -333,8 +337,8 @@ flat tensor-product environment.
 **Archimedean:** $S(\rho_B) \leq H_2(F_{\text{bare}})$, where $H_2(x) = -x\log_2 x - (1-x)\log_2(1-x)$
 is a SMOOTH function on $[0,1]$.
 
-**Ultrametric replacement:** In $p$-adic quantum mechanics (Khrennikov 1998
-`[speculative — non-Archimedean QM is not experimentally established]`), the
+**Ultrametric replacement:** In $p$-adic quantum mechanics `[5]`
+`[speculative — non-Archimedean QM is not experimentally established]`, the
 inner product is $p$-adic-valued. The fidelity becomes
 
 $$F_p = |\langle \bar{z}_+ | \rho_B | \bar{z}_+ \rangle|_p \in p^{\mathbb{Z}} \cup \{0\},$$
@@ -345,7 +349,7 @@ entropy measure is valuation-weighted rather than Shannon — for example:
 $$H_v(F_p) = -v_p(F_p).$$
 
 This is a **discrete, integer-valued function** — unlike the continuous $H_2$.
-The bound $S(\rho_B) \leq H_v(F_p)$ admits only integer-valued thresholds.
+The bound $S(\rho_B) \leq H_v(F_p)$ admits only integer-valued thresholds, consistent with the entropic structure of adelic information measures `[4]`.
 
 ### 4.3 Redundancy — Quantized by Tree Topology
 
@@ -543,7 +547,8 @@ infrastructure. The p-adic holography program constructs exact tensor networks o
 the Bruhat-Tits tree: Gubser, Knaute, Parikh & Samberg `[17]` established p-Adic
 AdS/CFT; Hung, Li & Melby-Thompson `[18]` showed p-adic CFT is a holographic
 tensor network built from perfect tensors on the BT tree; Heydeman, Marcolli,
-Saberi & Stoica `[19]` extended the correspondence to algebraic curves.
+Saberi & Stoica `[19]` extended the correspondence to algebraic curves, and the
+Bending-the-Bruhat-Tits-tree program `[6]` made the emergent-spacetime connection explicit.
 Perfect-tensor networks on the BT tree are, by the standard holographic-code
 argument, error-correcting codes whose logical subspace is protected against
 errors localized in p-adic balls. **The code construction therefore already
