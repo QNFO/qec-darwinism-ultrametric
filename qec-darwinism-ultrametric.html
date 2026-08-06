@@ -1172,6 +1172,59 @@ collective Holevo information is computed per depth with the proper
 recovery protocol (syndrome extraction) replacing the single-parameter
 <span class="math inline">\(\eta\)</span> map. Both are concrete next
 steps; the null result constrains what the toy model can claim.</p>
+<p><strong>Q6 refinement v2 (v1.10) — collective tree-structured
+fragments.</strong></p>
+<p>The required refinement (a) has been executed: the fragment criterion
+is now the <em>collective</em> depth-<span
+class="math inline">\(k\)</span> block of <span
+class="math inline">\(N_k\)</span> qubits, whose joint Holevo
+information is <span class="math inline">\(\chi_k^{\text{coll}} =
+H_2\big((1 + \cos^{N_k}(\phi_k))/2\big)\)</span> — the overlap is <span
+class="math inline">\(\cos^{N_k}\)</span>, not <span
+class="math inline">\(\cos\)</span>, giving far sharper discrimination
+at the same phase. Three results:</p>
+<ol type="1">
+<li><p><strong>The first-redundancy boundary moves toward the theorem
+threshold.</strong> With collective fragments, <span
+class="math inline">\(R_\delta\)</span> first becomes positive at <span
+class="math inline">\(F_L \approx 0.83\)</span>–<span
+class="math inline">\(0.85\)</span> (p=2: 0.833–0.837; p=3:
+0.847–0.849), up from <span class="math inline">\(\approx 0.80\)</span>
+in the single-qubit model — a 45–65% reduction in the gap to the theorem
+boundary <span class="math inline">\(F_L = 0.874\)</span>.</p></li>
+<li><p><strong>The residual gap is now strongly
+hierarchy-dependent.</strong> Sweeping the coupling hierarchy <span
+class="math inline">\(w_k = p^{-\alpha k}\)</span> over <span
+class="math inline">\(\alpha \in [0.5, 3]\)</span>, the gap shrinks from
+0.069 to 0.003 (p=2) and 0.070 to 0.0007 (p=3) — a 17–43<span
+class="math inline">\(\times\)</span> contraction. The collective model
+therefore exhibits a genuine, quantitative hierarchy signature that the
+single-qubit model lacked (where the gap was nearly flat: 0.074 to
+0.064).</p></li>
+<li><p><strong>Honest residual: the gap does not vanish at uniform
+coupling.</strong> At <span class="math inline">\(\alpha = 0\)</span>
+(all couplings equal, the Archimedean limit), the gap remains 0.044
+(p=2) / 0.030 (p=3) — nonzero. The level-partitioned collective-fragment
+structure does not reproduce the Maity solvable model’s exact
+full-environment saturation, and the block-fidelity collapse still
+outpaces fragment discrimination at shallow phases. The collective
+refinement therefore <em>partially resolves</em> the artifact (smaller
+gap, strong hierarchy dependence) without eliminating it.
+<code>[honest negative — the residual uniform-coupling gap is a remaining model limitation, not a claimed ultrametric signature]</code></p></li>
+</ol>
+<p>The staircase itself is preserved and sharpened: <span
+class="math inline">\(R\)</span> takes discrete values <span
+class="math inline">\(\{0, 3, 9, 21, 45\}\)</span> (p=2, K=4) — the
+cumulative sums of the tree branching sizes <span
+class="math inline">\(N_k = \{3, 6, 12, 24\}\)</span> — with the
+information-spreading radius <span class="math inline">\(\kappa\)</span>
+advancing level by level (1 <span class="math inline">\(\to\)</span> 2
+<span class="math inline">\(\to\)</span> 3 <span
+class="math inline">\(\to\)</span> 4) exactly as Section 4.3’s bound
+<span class="math inline">\(R_\delta^{(p)} \leq
+(p+1)p^{\kappa-1}\)</span> requires. The full data is archived at
+<code>artifacts/bt-tree-collective-fragments.json</code> and
+<code>artifacts/bt-tree-collective-alpha-sweep.json</code>.</p>
 <p><strong>Q7 — p-adic qubit and the Shor-code analog.</strong> Aniello,
 Mancini &amp; Parisi <code>[22]</code> built a p-adic quNit model on a
 quadratic extension of <span
