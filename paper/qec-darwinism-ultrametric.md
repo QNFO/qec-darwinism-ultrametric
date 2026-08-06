@@ -5,7 +5,7 @@ date: "2026-08-05"
 license: "CC-BY-4.0"
 doi: "10.5281/zenodo.21817396"
 status: "published"
-version: "v1.7"
+version: "v1.8"
 arxiv_target: "2608.03944"
 keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
@@ -675,6 +675,57 @@ spreads outward, to remove phase-revival oscillations) yields three results:
 The full numerical data (all four parameter configurations, envelope steps,
 distinct $R$ values, $N_{\text{eff}}$) is archived at
 `artifacts/bt-tree-code-simulation.json`.
+
+**Q6 refinement (v1.8) — post-recovery fidelity and a disciplined null.**
+Mapping the simulation onto the post-recovery logical fidelity
+$F_L = \eta + (1-\eta)F_{\text{bare}}$ (recovery efficiency $\eta = 0.60$,
+the Maity convention) produces three results, one of which is a null that we
+report deliberately:
+
+1. **The model satisfies the no-go theorem exactly.** In the commuting sector
+   the reduced block state is diagonal, so $\chi(E) = S(\rho_E) = S(\rho_B) =
+   H_2(F_{\text{bare}})$ — the full-environment Holevo information saturates
+   the proof chain identically to the Maity solvable model, and the R$\to$0
+   boundary lands at $F_L = 0.874$ for every $(p, K)$ configuration tested.
+   The ultrametric code does not violate the Archimedean no-go bound; the
+   tradeoff itself is place-invariant at the boundary.
+
+2. **The per-fragment fidelity-resolved staircase is degenerate.** Counting
+   distinct tree-branch fragments (each depth-$k$ qubit in the Darwinism
+   window), $R_\delta$ takes the discrete values
+   $\{0, 3, 6, 12, 15, 24, 27, 30\}$ ($p=2$) — the quantization is robust.
+   But every nonzero step occurs at $F_L \approx 0.800$: the first nonzero
+   $R$ appears only once a single shallowest-level phase reaches $\phi_1
+   \approx 1.19$ rad, by which time the block fidelity has already collapsed
+   to $F_{\text{bare}} \approx 0.5$. The fidelity resolution is therefore
+   degenerate: both the fidelity collapse and the fragment threshold crossing
+   are driven by the *same* shallowest-level phase.
+
+3. **The apparent "forbidden window" is a toy-model artifact — null result.**
+   The region $F_L \in (0.800, 0.874)$ shows $R = 0$ in the per-fragment
+   model despite lying below the no-go threshold, which would naively be read
+   as an ultrametric suppression of redundancy. We tested whether the window
+   width tunes with the coupling hierarchy by sweeping
+   $w_k = p^{-\alpha k}$ over $\alpha \in [0, 3]$: the gap is
+   $0.0736$ at $\alpha = 0$ (uniform, Archimedean limit) and shrinks only to
+   $0.064$ at $\alpha = 3$ — it does **not** vanish at the Archimedean limit,
+   so it is not a place-dependent signature. The window is an artifact of the
+   single-qubit-per-fragment $\chi_k$ criterion: the model counts fragments by
+   their individual Holevo information but computes fidelity from the total
+   decoherence product, and these two quantities are pinned together by the
+   shallowest level. `[null — the toy model does not exhibit an ultrametric
+   forbidden window; reporting it as a null rather than a finding]`
+
+**Required refinement.** The toy model cannot resolve the fidelity staircase
+because its fragment criterion ($\chi_k$ of a single qubit) is not the
+information-theoretic object in the Maity proof chain (full-environment
+$\chi(E)$, or the accessible information of *tree-structured* fragments
+collectively coupled at each depth). The genuine test of whether the
+fidelity-resolved staircase re-emerges requires either (a) tree-structured
+fragments whose collective Holevo information is computed per depth with the
+proper $N_k$-qubit block, or (b) an explicit recovery protocol (syndrome
+extraction) replacing the single-parameter $\eta$ map. Both are concrete
+next steps; the null result constrains what the toy model can claim.
 
 **Q7 — p-adic qubit and the Shor-code analog.**
 Aniello, Mancini & Parisi `[22]` built a p-adic quNit model on a quadratic

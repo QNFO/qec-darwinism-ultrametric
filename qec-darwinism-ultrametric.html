@@ -1083,6 +1083,72 @@ exhibit abrupt fidelity collapse instead.</p></li>
 steps, distinct <span class="math inline">\(R\)</span> values, <span
 class="math inline">\(N_{\text{eff}}\)</span>) is archived at
 <code>artifacts/bt-tree-code-simulation.json</code>.</p>
+<p><strong>Q6 refinement (v1.8) — post-recovery fidelity and a
+disciplined null.</strong> Mapping the simulation onto the post-recovery
+logical fidelity <span class="math inline">\(F_L = \eta +
+(1-\eta)F_{\text{bare}}\)</span> (recovery efficiency <span
+class="math inline">\(\eta = 0.60\)</span>, the Maity convention)
+produces three results, one of which is a null that we report
+deliberately:</p>
+<ol type="1">
+<li><p><strong>The model satisfies the no-go theorem exactly.</strong>
+In the commuting sector the reduced block state is diagonal, so <span
+class="math inline">\(\chi(E) = S(\rho_E) = S(\rho_B) =
+H_2(F_{\text{bare}})\)</span> — the full-environment Holevo information
+saturates the proof chain identically to the Maity solvable model, and
+the R$$0 boundary lands at <span class="math inline">\(F_L =
+0.874\)</span> for every <span class="math inline">\((p, K)\)</span>
+configuration tested. The ultrametric code does not violate the
+Archimedean no-go bound; the tradeoff itself is place-invariant at the
+boundary.</p></li>
+<li><p><strong>The per-fragment fidelity-resolved staircase is
+degenerate.</strong> Counting distinct tree-branch fragments (each
+depth-<span class="math inline">\(k\)</span> qubit in the Darwinism
+window), <span class="math inline">\(R_\delta\)</span> takes the
+discrete values <span class="math inline">\(\{0, 3, 6, 12, 15, 24, 27,
+30\}\)</span> (<span class="math inline">\(p=2\)</span>) — the
+quantization is robust. But every nonzero step occurs at <span
+class="math inline">\(F_L \approx 0.800\)</span>: the first nonzero
+<span class="math inline">\(R\)</span> appears only once a single
+shallowest-level phase reaches <span class="math inline">\(\phi_1
+\approx 1.19\)</span> rad, by which time the block fidelity has already
+collapsed to <span class="math inline">\(F_{\text{bare}} \approx
+0.5\)</span>. The fidelity resolution is therefore degenerate: both the
+fidelity collapse and the fragment threshold crossing are driven by the
+<em>same</em> shallowest-level phase.</p></li>
+<li><p><strong>The apparent “forbidden window” is a toy-model artifact —
+null result.</strong> The region <span class="math inline">\(F_L \in
+(0.800, 0.874)\)</span> shows <span class="math inline">\(R = 0\)</span>
+in the per-fragment model despite lying below the no-go threshold, which
+would naively be read as an ultrametric suppression of redundancy. We
+tested whether the window width tunes with the coupling hierarchy by
+sweeping <span class="math inline">\(w_k = p^{-\alpha k}\)</span> over
+<span class="math inline">\(\alpha \in [0, 3]\)</span>: the gap is <span
+class="math inline">\(0.0736\)</span> at <span
+class="math inline">\(\alpha = 0\)</span> (uniform, Archimedean limit)
+and shrinks only to <span class="math inline">\(0.064\)</span> at <span
+class="math inline">\(\alpha = 3\)</span> — it does <strong>not</strong>
+vanish at the Archimedean limit, so it is not a place-dependent
+signature. The window is an artifact of the single-qubit-per-fragment
+<span class="math inline">\(\chi_k\)</span> criterion: the model counts
+fragments by their individual Holevo information but computes fidelity
+from the total decoherence product, and these two quantities are pinned
+together by the shallowest level.
+<code>[null — the toy model does not exhibit an ultrametric forbidden window; reporting it as a null rather than a finding]</code></p></li>
+</ol>
+<p><strong>Required refinement.</strong> The toy model cannot resolve
+the fidelity staircase because its fragment criterion (<span
+class="math inline">\(\chi_k\)</span> of a single qubit) is not the
+information-theoretic object in the Maity proof chain (full-environment
+<span class="math inline">\(\chi(E)\)</span>, or the accessible
+information of <em>tree-structured</em> fragments collectively coupled
+at each depth). The genuine test of whether the fidelity-resolved
+staircase re-emerges requires either (a) tree-structured fragments whose
+collective Holevo information is computed per depth with the proper
+<span class="math inline">\(N_k\)</span>-qubit block, or (b) an explicit
+recovery protocol (syndrome extraction) replacing the single-parameter
+<span class="math inline">\(\eta\)</span> map. Both are concrete next
+steps; the null result constrains what the toy model can claim.</p>
 <p><strong>Q7 — p-adic qubit and the Shor-code analog.</strong> Aniello,
 Mancini &amp; Parisi <code>[22]</code> built a p-adic quNit model on a
 quadratic extension of <span
