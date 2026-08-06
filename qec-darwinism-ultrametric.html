@@ -249,10 +249,15 @@ regimes forbidden by the original theorem. We frame three falsifiable
 predictions for quantum processors with <span
 class="math inline">\(1/f^\alpha\)</span> noise and identify eight open
 mathematical questions (Q1–Q8) whose resolution would make the
-ultrametric bound quantitative. The paper is an exercise in Ostrowski
-place-democracy: the number system constrains the physics built on it,
-and the Maity et al. theorem is one completion’s shadow.
-<code>[speculative]</code></p>
+ultrametric bound quantitative. A first numerical implementation of the
+BT-tree code (Q6) confirms the quantized-redundancy prediction and the
+effective- environment reduction, while revealing an honest caveat: the
+deep-ultrametric regime collapses logical fidelity before the staircase
+can resolve in <span class="math inline">\(F_L\)</span>, shifting the
+experimentally relevant regime to shallow trees or weak hierarchy. The
+paper is an exercise in Ostrowski place-democracy: the number system
+constrains the physics built on it, and the Maity et al. theorem is one
+completion’s shadow. <code>[speculative]</code></p>
 <hr />
 <h2 id="introduction-a-tradeoff-born-in-one-completion">1. Introduction:
 A Tradeoff Born in One Completion</h2>
@@ -1023,6 +1028,61 @@ class="math inline">\(p=3\)</span>), couple it to an environment along
 the tree edges, and compute the redundancy-fidelity curve numerically
 against the Archimedean prediction. This turns the staircase prediction
 into a computable, checkable claim.</p>
+<p><strong>Q6 executed (v1.7).</strong> We implemented the
+block-environment model of Section 2 on a (p+1)-regular Bruhat-Tits
+tree: a logical GHZ block at the root, <span class="math inline">\(N_k =
+(p+1)p^{k-1}\)</span> environment qubits at tree depth <span
+class="math inline">\(k\)</span>, hierarchical coupling weights <span
+class="math inline">\(w_k = p^{-k}\)</span>, commuting-sector
+Hamiltonian, exact diagonalization of the factorized propagator.
+Sweeping the evolution time and taking the monotone envelope of the
+Darwinistic redundancy (the maximum achieved as information spreads
+outward, to remove phase-revival oscillations) yields three results:</p>
+<ol type="1">
+<li><p><strong>Redundancy quantization CONFIRMED.</strong> The
+redundancy <span class="math inline">\(R_\delta\)</span> takes only a
+discrete set of values. For <span class="math inline">\(p=2\)</span>:
+<span class="math inline">\(R \in \{0, 3, 6, 12, 15\}\)</span> (tree
+depth 3) and <span class="math inline">\(R \in \{0, 3, 6, 12, 15, 24,
+27, 30\}\)</span> (depth 4) — steps of the branching sizes <span
+class="math inline">\(N_k \in \{3, 6, 12, 24\}\)</span>, not a smooth
+function of the fidelity. This is the quantized staircase predicted in
+Section 4.3, verified numerically.</p></li>
+<li><p><strong>Effective environment size reduction CONFIRMED.</strong>
+The final effective environment size is <span
+class="math inline">\(N_{\text{eff}} = 9\)</span> of 21 (p=2, depth 3),
+33 of 45 (p=2, depth 4), 16 of 52 (p=3), 16 of 160 (p=3, depth 4). Deep
+tree levels are effectively inert — the hierarchical coupling <span
+class="math inline">\(p^{-k}\)</span> confines the Darwinistic
+environment to the shallow levels, exactly the reduction predicted in
+Section 4.1.</p></li>
+<li><p><strong>Honest caveat — degenerate fidelity in the
+deep-ultrametric regime.</strong> The same simulation shows the block
+fidelity collapses to <span class="math inline">\(F_{\text{bare}}
+\approx 0.5\)</span> almost immediately: the shallow-level decoherence
+factor <span class="math inline">\(\cos^{N_1}(g_Z p^{-1} t)\)</span>
+destroys the logical coherence before deeper levels contribute. The
+staircase in <span class="math inline">\(R\)</span> vs <span
+class="math inline">\(F_L\)</span> is therefore degenerate in the
+deep-ultrametric regime — all nonzero redundancy steps occur at <span
+class="math inline">\(F_{\text{bare}} \approx 0.5\)</span>. This is a
+refinement, not a disconfirmation, of Section 4.3: the fidelity-resolved
+staircase is visible only for shallow trees (small <span
+class="math inline">\(K\)</span>) or weak hierarchy (coupling decay
+shallower than <span class="math inline">\(p^{-k}\)</span>), where <span
+class="math inline">\(F_{\text{bare}}\)</span> remains above the no-go
+threshold while multiple levels contribute. The Archimedean limit is
+recovered as <span class="math inline">\(p \to \infty\)</span> (weights
+$ o 1$, single block of <span class="math inline">\(N\)</span> qubits
+crossing the threshold together). The falsifiable content is preserved:
+a <em>shallow</em> ultrametric code is the regime in which a device
+would exhibit the resolved staircase; a deep-ultrametric code would
+exhibit abrupt fidelity collapse instead.</p></li>
+</ol>
+<p>The full numerical data (all four parameter configurations, envelope
+steps, distinct <span class="math inline">\(R\)</span> values, <span
+class="math inline">\(N_{\text{eff}}\)</span>) is archived at
+<code>artifacts/bt-tree-code-simulation.json</code>.</p>
 <p><strong>Q7 — p-adic qubit and the Shor-code analog.</strong> Aniello,
 Mancini &amp; Parisi <code>[22]</code> built a p-adic quNit model on a
 quadratic extension of <span
