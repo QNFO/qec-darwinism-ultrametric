@@ -1,11 +1,11 @@
 ---
 title: "Archimedean Shadows: The QEC-Darwinism Tradeoff in Ultrametric Spaces"
 author: "Rowan Brad Quni-Gudzinas"
-date: "2026-08-05"
-license: "CC-BY-4.0"
-doi: "10.5281/zenodo.21819152"
+date: "2026-08-16"
+license: "cc-by-4.0"
+doi: "10.5281/zenodo.21964674"
 status: "published"
-version: "v1.10"
+version: "v1.11"
 arxiv_target: "2608.03944"
 keywords: ["quantum error correction", "quantum darwinism", "ultrametric", "bruhat-tits tree", "p-adic", "ostrowski", "no-go theorem", "measurement stratigraphy", "consilience"]
 ---
@@ -110,24 +110,38 @@ between the number system and the physics built on it.
 
 ### 1.1 Structure
 
-- **§2** summarizes the Maity et al. theorem: model, derivation, and the no-go bound
-- **§3** introduces ultrametric code spaces: Bruhat-Tits geometry, p-adic sphere
+- **§3** summarizes the Maity et al. theorem: model, derivation, and the no-go bound
+- **§4** introduces ultrametric code spaces: Bruhat-Tits geometry, p-adic sphere
   packings, and the Ostrowski diagnostics
-- **§4** reformulates redundancy in ultrametric terms and derives how the tradeoff
+- **§5** reformulates redundancy in ultrametric terms and derives how the tradeoff
   relation transforms
-- **§5** discusses implications: could ultrametric QEC circumvent the Darwinism
+- **§6** discusses implications: could ultrametric QEC circumvent the Darwinism
   bottleneck? What would an experiment look like?
-- **§6** states falsifiable predictions and concludes
+- **§7** states falsifiable predictions and concludes
 
 ---
 
-## 2. The No-Go Theorem (Summary of Maity et al.)
+## 2. So What? Why Should a Reader Care About This Research?
+
+**The stakes.** Quantum error correction is the engineering bottleneck of fault-tolerant quantum computing: a quantum state must be redundantly encoded to survive noise, but redundancy is itself the Darwinism cost that erodes coherence. Maity et al. (arXiv:2608.03944) proved a tight, model-independent no-go theorem: above logical fidelity $F_L > 0.874$, quantum error correction and Quantum Darwinism cannot coexist. This paper asks the question that determines whether that theorem is a wall or a window: does the tradeoff survive in ultrametric code spaces — the geometry of the Bruhat–Tits tree, of p-adic numbers, of hierarchical systems? The answer is directly relevant to anyone building or assessing a quantum error-correcting code.
+
+**Why a quantum-computing researcher should care.** The ultrametric substitution transforms the tradeoff in three concrete ways (Section 5): the strong triangle inequality forces a *discrete, staircase redundancy* — fragments are either identical or maximally distant, eliminating the smooth critical divergence; the equal-weight coupling becomes a *hierarchical weight* $p^{-d(\text{block},k)}$, shrinking the effective environment size; and the Shannon entropy is replaced by a *valuation-weighted entropy* $H_v$, discretizing the no-go threshold. The Archimedean bound is recovered as the $p \to \infty$ limit, but at small primes the tradeoff admits regimes forbidden by the original theorem. The paper delivers concrete instruments: sphere packings on the Bruhat–Tits tree as code constructions (Section 4.2), a quantized-redundancy staircase confirmed numerically on a BT-tree code (Q6, executed), two limiting regimes (Section 5.5), and three falsifiable predictions for quantum processors with $1/f^\alpha$ noise (Section 6.3) — together with an honest caveat: the deep-ultrametric regime collapses logical fidelity before the staircase can resolve, shifting the experimentally relevant regime to shallow trees or weak hierarchy. That caveat is premises-depth honesty of the kind that makes a prediction testable rather than promotional.
+
+**Why a foundations researcher should care.** The paper is an exercise in Ostrowski place-democracy: the number system constrains the physics built on it, and the Maity theorem is one completion's shadow. The no-go theorem is model-independent *within the Archimedean completion*; this paper audits where its premises end (Shannon entropy, additive collective coupling, Hamming code distances, tensor-product fragment decompositions) and what happens in another completion. A theory is only as deep as its premises — this paper changes the premises and watches what survives.
+
+**Practical utility — in both outcomes.** If the tradeoff is Ostrowski-invariant (the null case), the paper still delivers a rigorous demonstration that QEC's fundamental limits are completion-independent, plus the sphere-packing toolkit on trees. If the tradeoff changes at small primes, the deliverable is a new code family with quantized redundancy — and the Q6 numerical implementation already confirms the quantized-staircase prediction and the effective-environment reduction. The three falsifiable predictions are pre-registered instruments for any experimental group working with hierarchical or $1/f^\alpha$-noise devices.
+
+**How deep does it go? Where do the premises end?** [ESTABLISHED] the Maity no-go theorem within its Archimedean premises. [DERIVED] the transformed bound, the staircase redundancy, the hierarchical weight, and the valuation-weighted entropy — within the ultrametric model whose premises are tree geometry and hierarchical coupling. [SPECULATIVE — labelled as such] the three falsifiable predictions, until measured. [OPEN] the eight mathematical questions Q1–Q8 whose resolution would make the ultrametric bound quantitative. The premises end exactly where the paper marks them: the number system is itself a premise, and the deep-ultrametric caveat is the boundary of the experimentally relevant regime.
+
+**What this paper does not claim.** No claim that ultrametric codes outperform Archimedean ones (the tradeoff question is open, and the deep-ultrametric caveat is explicit). No claim of a complete decoder implementation (Q6 is a first numerical implementation with honest limits). The claims are: the transformed bound, the two limiting regimes, the three falsifiable predictions, and the eight open questions — each individually checkable.
+
+## 3. The No-Go Theorem (Summary of Maity et al.)
 
 The Maity et al. framework is the first quantitative connection between QEC and
 Quantum Darwinism. We summarize it here as the *auditing target* — the
 Archimedean theorem whose ultrametric transformation is the subject of this paper.
 
-### 2.1 The Block-Environment Model
+### 3.1 The Block-Environment Model
 
 A logical qubit is encoded in one GHZ block of the Shor [[9,1,3]] code `[8]`. The
 logical basis is formed by the orthogonal codewords
@@ -143,7 +157,7 @@ where $\hat{S}_Z = \sum_{k=1}^N Z_k$ and $\hat{S}_X = \sum_{k=1}^N X_k$ are coll
 spin operators. The exactly solvable limit is $g_X = 0$ (commuting sector); the
 full Hamiltonian with $g_X \neq 0$ is treated numerically to confirm robustness.
 
-### 2.2 Key Quantities (All Archimedean)
+### 3.2 Key Quantities (All Archimedean)
 
 | Quantity | Symbol | Expression |
 |:---------|:-------|:-----------|
@@ -154,7 +168,7 @@ full Hamiltonian with $g_X \neq 0$ is treated numerically to confirm robustness.
 | Darwinism threshold | $\delta$ | Typical value $\delta = 0.10$ |
 | Recovery efficiency | $\eta$ | Imperfect syndrome extraction efficiency; typical value $\eta = 0.60$ |
 
-### 2.3 Lemma 1 — Block Entropy Bound (Archimedean)
+### 3.3 Lemma 1 — Block Entropy Bound (Archimedean)
 
 For any qubit block state $\rho_B$ with bare logical fidelity $F_{\text{bare}} =
 \langle \bar{z}_+ | \rho_B | \bar{z}_+ \rangle$, the von Neumann entropy satisfies
@@ -168,7 +182,7 @@ where $H_2(x) = -x \log_2 x - (1-x) \log_2 (1-x)$ is the binary entropy.
 with off-diagonal element $c$, the entropy satisfies $S(\rho_B) \leq H_2(F_{\text{bare}})$
 for all $|c|$, with equality at $|c| = 0$. ∎
 
-### 2.4 Theorem 1 — The No-Go Theorem (Model-Independent, Archimedean)
+### 3.4 Theorem 1 — The No-Go Theorem (Model-Independent, Archimedean)
 
 **If** $F_{\text{bare}} > H_2^{-1}[(1-\delta)\ln 2]$, **then no environment
 fragment can satisfy the Darwinism criterion.** Consequently, $R_\delta = 0$,
@@ -188,7 +202,7 @@ $$(1-\delta)\ln 2 \leq \chi(F) \leq \chi(E) \leq S(\rho_E) = S(\rho_B) \leq H_2(
 
 Contradiction with the hypothesis. ∎
 
-### 2.5 Corollary — Imperfect Recovery
+### 3.5 Corollary — Imperfect Recovery
 
 For the imperfect-recovery model, the no-go threshold becomes:
 
@@ -201,7 +215,7 @@ $$F_L(N) > 0.874 \quad \Longrightarrow \quad \text{zero Darwinistic redundancy}.
 Any logical qubit protected with fidelity exceeding 87.4% produces ZERO redundant
 classical records — the qubit is quantum-coherent but classically invisible.
 
-### 2.6 Exact Tradeoff (Solvable Model Saturation)
+### 3.6 Exact Tradeoff (Solvable Model Saturation)
 
 In the exactly solvable limit $g_X = 0$, the solvable model saturates every
 inequality in the proof chain:
@@ -220,7 +234,7 @@ $$R_\delta \sim -\ln\big(F_L(N) - F_c\big) \quad \text{as} \quad F_L(N) \to F_c^
 where $F_c = \eta + (1-\eta) \cdot H_2^{-1}[(1-\delta)\ln 2]$. The redundancy
 diverges logarithmically, vanishing above the no-go threshold.
 
-### 2.7 The Archimedean Shadow
+### 3.7 The Archimedean Shadow
 
 The entire framework — Hamming distance, additive collective coupling, Shannon
 entropy $H_2$, trace-distance fidelity, tensor-product environment — assumes
@@ -230,9 +244,9 @@ or eliminates the no-go bound.
 
 ---
 
-## 3. Ultrametric Code Spaces
+## 4. Ultrametric Code Spaces
 
-### 3.1 The Bruhat–Tits Tree as a QEC Geometry
+### 4.1 The Bruhat–Tits Tree as a QEC Geometry
 
 The $p$-adic numbers $\mathbb{Q}_p$ have a natural tree structure: the Bruhat–Tits
 tree $\mathcal{T}_p$ is an infinite $(p+1)$-regular tree whose vertices correspond to
@@ -258,7 +272,7 @@ undertakes: a fidelity-redundancy tradeoff analysis of such codes under the
 QEC-Darwinism competition. We now sketch the geometry that such an analysis
 requires, and why its information topology differs from the Archimedean case.
 
-### 3.2 Sphere Packings on the BT Tree
+### 4.2 Sphere Packings on the BT Tree
 
 In an ultrametric space, the strong triangle inequality forces spheres of the same
 radius to be **either identical or disjoint** — they cannot partially overlap.
@@ -279,7 +293,7 @@ This has direct consequences for code construction:
    non-overlapping code-balls — structurally different from the Hamming bound
    on the binary hypercube.
 
-### 3.3 The Critical Difference: Strong Triangle Inequality
+### 4.3 The Critical Difference: Strong Triangle Inequality
 
 The strong triangle inequality is not a curiosity — it is the **operative**
 difference between the Maity et al. proof chain and its ultrametric counterpart.
@@ -296,7 +310,7 @@ maximally different information (different balls). There is no regime of "partia
 overlap" — the continuous redundancy function $R_\delta$ of the Archimedean model
 is replaced by a **discrete, stepwise redundancy** on the BT tree.
 
-### 3.4 Ostrowski Place-Democracy
+### 4.4 Ostrowski Place-Democracy
 
 Per Ostrowski's theorem, any nontrivial absolute value on $\mathbb{Q}$ is equivalent
 to either the Archimedean absolute value $|\cdot|_\infty$ or a $p$-adic absolute
@@ -308,7 +322,7 @@ or is it an artifact of the Archimedean completion?
 
 ---
 
-## 4. The Tradeoff Under Ultrametric Transformation
+## 5. The Tradeoff Under Ultrametric Transformation
 
 We now examine each step of the Maity et al. proof chain under ultrametric
 substitution. The chain is:
@@ -318,7 +332,7 @@ $$(1-\delta)\ln 2 \leq \chi(F) \leq \chi(E) \leq S(\rho_E) = S(\rho_B) \leq H_2(
 We transform each inequality from Archimedean (right column) to ultrametric
 (left column) and identify what changes — and what does not.
 
-### 4.1 The Hamiltonian — Hierarchical Coupling
+### 5.1 The Hamiltonian — Hierarchical Coupling
 
 **Archimedean:** $\hat{H} = g_Z \hat{Z}_b \otimes (\sum_{k=1}^N Z_k)$ with equal-strength
 collective coupling to all $N$ environment qubits.
@@ -337,7 +351,7 @@ is $N_{\text{eff}} \sim p^{r_{\text{info}}}$, not $N$. The redundancy-defining f
 count is inherited from the tree topology, not from an arbitrary partitioning of a
 flat tensor-product environment.
 
-### 4.2 The Entropy Bound — Discrete vs. Continuous
+### 5.2 The Entropy Bound — Discrete vs. Continuous
 
 **Archimedean:** $S(\rho_B) \leq H_2(F_{\text{bare}})$, where $H_2(x) = -x\log_2 x - (1-x)\log_2(1-x)$
 is a SMOOTH function on $[0,1]$.
@@ -356,7 +370,7 @@ $$H_v(F_p) = -v_p(F_p).$$
 This is a **discrete, integer-valued function** — unlike the continuous $H_2$.
 The bound $S(\rho_B) \leq H_v(F_p)$ admits only integer-valued thresholds, consistent with the entropic structure of adelic information measures `[4]`.
 
-### 4.3 Redundancy — Quantized by Tree Topology
+### 5.3 Redundancy — Quantized by Tree Topology
 
 This is the most consequential transformation. In the Archimedean model,
 redundancy diverges as $R_\delta \sim -\ln(F_L - F_c)$ when fidelity approaches
@@ -398,7 +412,7 @@ p+1, & F_{c,1}^{(p)} < F_L \leq F_c^{(p)} \\
 where $F_{c,k}^{(p)}$ are the level-specific critical fidelities determined by the
 ultrametric coupling strength at tree depth $k$.
 
-### 4.4 The Transformed No-Go Bound
+### 5.4 The Transformed No-Go Bound
 
 Replacing each Archimedean quantity with its ultrametric counterpart, the proof
 chain becomes:
@@ -420,7 +434,7 @@ where $\tilde{H}$ is the appropriate ultrametric entropy measure.
 | Maximum redundancy | Unbounded for large $N$ | Bounded by $(p+1)p^{\kappa-1}$ |
 | Information spreading | Extensive in $N$ (additive coupling) | Hierarchical (exponentially decaying coupling) |
 
-### 4.5 Two Limiting Regimes
+### 5.5 Two Limiting Regimes
 
 **The Archimedean limit ($p \to \infty$):** As the prime becomes large, the
 BT tree becomes dense — the branching ratio $(p+1)$ grows, the discrete
@@ -445,9 +459,9 @@ and Darwinism can coexist.
 
 ---
 
-## 5. Implications
+## 6. Implications
 
-### 5.1 If the Tradeoff Changes: A New Degree of Freedom for QEC
+### 6.1 If the Tradeoff Changes: A New Degree of Freedom for QEC
 
 If the ultrametric redundancy bound differs from the Archimedean case — whether
 the threshold shifts, the staircase replaces the smooth divergence, or the
@@ -469,11 +483,11 @@ an \emph{effective ultrametric signature} characterizable by a small prime $p$
 is a hypothesis, not an established device characteristic `[speculative]`: no
 device-calibration routine currently returns an effective prime, and no
 mainstream measurement has confirmed ultrametric noise structure. It is
-motivated by the Avetisov-Bikulov and ultradiffusion results (Section 5.4) that
+motivated by the Avetisov-Bikulov and ultradiffusion results (Section 6.4) that
 hierarchical relaxation landscapes DO generate power-law spectra, and by the
 spectral ladder of the p-adic random walk `[28]` — but it remains to be
 confirmed experimentally. Its falsifiable content is exactly the staircase
-prediction of Section 4.3: if the redundancy-fidelity curve on a device with
+prediction of Section 5.3: if the redundancy-fidelity curve on a device with
 power-law noise is measured and found to be smooth at all accessible scales, the
 ultrametric hypothesis at that scale is disconfirmed, and the Archimedean
 treatment stands.
@@ -485,7 +499,7 @@ $p$ can be tuned — e.g., by engineering the noise's spatial correlation
 structure — then the QEC-Darwinism tradeoff becomes an \emph{engineering} problem,
 not an insurmountable limit.
 
-### 5.2 If the Tradeoff Is Ostrowski-Invariant: A Deep Null Result
+### 6.2 If the Tradeoff Is Ostrowski-Invariant: A Deep Null Result
 
 If the Archimedean bound is universal — if every $p$-adic place yields the same
 tradeoff — then the no-go theorem is a genuine physical invariant, independent
@@ -500,7 +514,7 @@ depend on which completion of $\mathbb{Q}$ is operationally relevant — is
 either false at the QEC scale, or requires significantly more precise experiments
 to detect.
 
-### 5.3 Open Questions
+### 6.3 Open Questions
 
 This paper raises more questions than it answers. We identify four that we
 believe are tractable with current mathematical tools:
@@ -509,7 +523,7 @@ believe are tractable with current mathematical tools:
    von Neumann entropy for $p$-adic Hilbert spaces? Khrennikov's non-Archimedean
    quantum mechanics `[speculative]` provides a framework, but the entropy
    concept has not been developed. Without this, the quantitative form of the
-   ultrametric bound in §4.4 remains conjectural.
+   ultrametric bound in §5.4 remains conjectural.
 
 2. **Explicit BT tree codes.** Can we construct QEC codes whose codewords are
    $p$-adic balls on the Bruhat–Tits tree, with a code distance expressed in
@@ -525,7 +539,7 @@ believe are tractable with current mathematical tools:
    Born rule in Archimedean QM) have a $p$-adic analog? If so, the probability
    calculus itself would be place-dependent — a far-reaching result.
 
-### 5.4 Partial Progress on the Open Questions (v1.4)
+### 6.4 Partial Progress on the Open Questions (v1.4)
 
 We report the results of a targeted literature investigation into each open
 question. The picture that emerges is uneven: two questions have substantial
@@ -541,7 +555,7 @@ $\mathbb{Q}_p$, following Kalisch `[24]` and Vladimirov–Volovich `[25]`) toget
 with a concrete **p-adic qubit model**. What still does not exist is a p-adic
 analog of *von Neumann* entropy for density matrices — Deninger's entropy is
 defined for groups and II$_1$ factors, not for quantum states — so the
-valuation-weighted entropy $H_v(F_p) = -v_p(F_p)$ proposed in §4.2 remains a
+valuation-weighted entropy $H_v(F_p) = -v_p(F_p)$ proposed in §5.2 remains a
 conjecture in its present form. The correction sharpens the program rather than
 weakening it: the Aniello–Mancini–Parisi p-adic Hilbert space gives the entropy
 conjecture a well-defined domain, and the ultrametric diffusion models of
@@ -566,7 +580,7 @@ environment, and compute the tradeoff curve against the Archimedean prediction.
 Bikulov & Osipov `[14]` proved that p-adic ultrametric random walks on
 hierarchical energy landscapes produce **1/f-like relaxation spectra** — the
 exact spectral class observed in superconducting qubit dephasing. Their result
-converts the candidate noise models of §5.2 from speculation to empirical
+converts the candidate noise models of §6.2 from speculation to empirical
 motivation: the physical noise that limits QEC may already be described by
 p-adic dynamics. This is the strongest external support for the paper's central
 falsifiable claim — that the redundancy-fidelity tradeoff may deviate from the
@@ -581,7 +595,7 @@ Avetisov–Bikulov program. Albeverio & Karwowski `[28]` computed the **generato
 and spectrum of the random walk on p-adics**: the spectrum is countable, indexed
 by the p-adic valuation hierarchy, and the associated relaxation times form the
 discrete geometric ladder $\tau_n \sim p^{n}$ — precisely the discrete time-scale
-structure that §4.3 predicts for the redundancy staircase. The p-adic spectral
+structure that §5.3 predicts for the redundancy staircase. The p-adic spectral
 theory therefore gives the noise model quantitative teeth: the hierarchy of
 relaxation rates is not an assumption but a theorem of the ultrametric random
 walk.
@@ -603,7 +617,7 @@ subspaces, where the Archimedean order of $[0,1]$ fails. Fawcett's conjecture
 `[20]` is the natural target to prove or refute. This remains the deepest open
 problem of the four.
 
-### 5.4.1 New Open Questions Opened by the v1.4 Investigation (v1.5)
+### 6.4.1 New Open Questions Opened by the v1.4 Investigation (v1.5)
 
 The v1.4 corrections (p-adic entropy, p-adic Born rule conjecture, spectral
 ladder) open four NEW questions that were not formulable in v1.2:
@@ -634,7 +648,7 @@ environment along the tree edges, and compute the redundancy-fidelity curve
 numerically against the Archimedean prediction. This turns the staircase
 prediction into a computable, checkable claim.
 
-**Q6 executed (v1.7).** We implemented the block-environment model of Section 2
+**Q6 executed (v1.7).** We implemented the block-environment model of Section 3
 on a (p+1)-regular Bruhat-Tits tree: a logical GHZ block at the root, $N_k =
 (p+1)p^{k-1}$ environment qubits at tree depth $k$, hierarchical coupling
 weights $w_k = p^{-k}$, commuting-sector Hamiltonian, exact diagonalization of
@@ -646,7 +660,7 @@ spreads outward, to remove phase-revival oscillations) yields three results:
    a discrete set of values. For $p=2$: $R \in \{0, 3, 6, 12, 15\}$ (tree
    depth 3) and $R \in \{0, 3, 6, 12, 15, 24, 27, 30\}$ (depth 4) — steps of
    the branching sizes $N_k \in \{3, 6, 12, 24\}$, not a smooth function of
-   the fidelity. This is the quantized staircase predicted in Section 4.3,
+   the fidelity. This is the quantized staircase predicted in Section 5.3,
    verified numerically.
 
 2. **Effective environment size reduction CONFIRMED.** The final effective
@@ -654,7 +668,7 @@ spreads outward, to remove phase-revival oscillations) yields three results:
    (p=2, depth 4), 16 of 52 (p=3), 16 of 160 (p=3, depth 4). Deep tree levels
    are effectively inert — the hierarchical coupling $p^{-k}$ confines the
    Darwinistic environment to the shallow levels, exactly the reduction
-   predicted in Section 4.1.
+   predicted in Section 5.1.
 
 3. **Honest caveat — degenerate fidelity in the deep-ultrametric regime.**
    The same simulation shows the block fidelity collapses to $F_{\text{bare}}
@@ -663,7 +677,7 @@ spreads outward, to remove phase-revival oscillations) yields three results:
    levels contribute. The staircase in $R$ vs $F_L$ is therefore degenerate in
    the deep-ultrametric regime — all nonzero redundancy steps occur at
    $F_{\text{bare}} \approx 0.5$. This is a refinement, not a disconfirmation,
-   of Section 4.3: the fidelity-resolved staircase is visible only for shallow
+   of Section 5.3: the fidelity-resolved staircase is visible only for shallow
    trees (small $K$) or weak hierarchy (coupling decay shallower than $p^{-k}$),
    where $F_{\text{bare}}$ remains above the no-go threshold while multiple
    levels contribute. The Archimedean limit is recovered as $p \to \infty$
@@ -782,7 +796,7 @@ The staircase itself is preserved and sharpened: $R$ takes discrete values
 $\{0, 3, 9, 21, 45\}$ (p=2, K=4) — the cumulative sums of the tree branching
 sizes $N_k = \{3, 6, 12, 24\}$ — with the information-spreading radius
 $\kappa$ advancing level by level (1 $\to$ 2 $\to$ 3 $\to$ 4) exactly as
-Section 4.3's bound $R_\delta^{(p)} \leq (p+1)p^{\kappa-1}$ requires.
+Section 5.3's bound $R_\delta^{(p)} \leq (p+1)p^{\kappa-1}$ requires.
 The full data is archived at
 `artifacts/bt-tree-collective-fragments.json` and
 `artifacts/bt-tree-collective-alpha-sweep.json`.
@@ -797,7 +811,7 @@ analog of a POVM. The existence of the SOVM is significant: it means a p-adic
 p-adic Gleason theorem (Q5) would constrain. The open question: does a logical
 GHZ block analogous to the Shor [[9,1,3]] encoding exist on the p-adic Hilbert
 space? If the p-adic qubit supports only a restricted set of states, the
-block-environment model of Section 2 may need modification — or the Darwinism
+block-environment model of Section 3 may need modification — or the Darwinism
 analysis may be carried out entirely in the p-adic qubit basis, with SOVM
 measurements replacing the Archimedean POVMs of the original tradeoff.
 
@@ -817,10 +831,10 @@ low-cost first test of the hypothesis.
 
 ---
 
-### 5.5 Adversarial Review and Calibration (v1.5)
+### 6.5 Adversarial Review and Calibration (v1.5)
 
 An external critique of an earlier draft (2026-08-05) identified an overstatement
-in the framing of Section 5.1: the claim that "current QEC research treats all
+in the framing of Section 6.1: the claim that "current QEC research treats all
 noise as Archimedean" was read as implying mainstream QEC ignores $1/f$,
 non-Markovian, and correlated noise, which is false — these are active research
 areas handled within real-valued formalisms (noise spectroscopy, dynamical
@@ -836,7 +850,7 @@ commitments follow from this exchange:
 
 2. **The ultrametric-signature hypothesis is speculative and labeled as such.**
    The proposal that power-law noise on real devices carries an effective prime
-   $p$ is `[speculative]` until a measurement exhibits the staircase (Section 4.3)
+   $p$ is `[speculative]` until a measurement exhibits the staircase (Section 5.3)
    or an alternative ultrametric signature. Its disconfirmation condition is
    stated: a smooth redundancy-fidelity curve at all accessible scales falsifies
    the hypothesis at that scale. Reporting this calibration is required by the
@@ -852,7 +866,7 @@ depends on it surviving exactly this kind of scrutiny.
 
 ---
 
-## 6. Conclusion
+## 7. Conclusion
 
 Maity et al. proved that quantum error correction and Quantum Darwinism are in
 exact quantitative tension — redundancy in the environment comes at the expense
@@ -911,7 +925,7 @@ All derivations are in the paper. The Shor [[9,1,3]] code is a standard QEC cons
 This research received no specific grant from any funding agency.
 
 ### Pre-Registration
-This paper's core predictions (§4.3, P1–P2) are timestamped by the git commit
+This paper's core predictions (§5.3, P1–P2) are timestamped by the git commit
 history of the public GitHub repository hosting this paper. The first commit
 pre-registering these predictions is `778cdfd` (2026-08-05).
 

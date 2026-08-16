@@ -52,3 +52,4 @@ This paper is a companion to the CWI QEC Summer School poster (Aug 24–28, 2026
 The poster asks: *"What falsifies the QEC roadmap?"* — this paper answers with a
 specific, falsifiable claim: the tradeoff between protected quantum information
 and emergent classicality depends on which number system you build your codes in.
+- **2026-08-16 — v1.11 so-what remediation** (DOI 10.5281/zenodo.21964674): new Section 2 "So What? Why Should a Reader Care About This Research?" (global so-what mandate; QEC engineering stakes, three ultrametric transformations, falsifiable predictions, practical-utility-in-both-outcomes, premises-depth ladder); P5.FRESH frontmatter DOI fix (v1.10 had shipped stale v1.9 DOI 21819152); sections renumbered 2-6 -> 3-7 with cross-refs updated; provenance files added to the deposit (README, PROJECT-PLAN, artifacts incl. bt-tree simulation evidence).
